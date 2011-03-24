@@ -8,21 +8,21 @@
 
 # Store
 
-  * Hosted? (not free - $30/mo)
   * Google checkout (mostly customizable, but not 100%)
-  * Spree - fully customizable, takes longer
+  * Self-hosted
 
-# Events, Activities, Programs
+# Events, Activities, Programs (classes), Bird Seed Sales
 
   * What's the exact taxonomy?
-  * CRUD + Registration + Fees?
+    * Camps, events, classes
+  * CRUD + Registration + Fees
+    * option to pay by check/phone
 
 # Mailing
 
   * Mail chimp (free up to 2,000 subscribers)
   * Can do it ourselves, but watch out for spamhaus
   * What kind of templates? Rich UI or just an image or two?
-  * Is this really necessary? Facebook may be better alternative.
 
 # Current DB/data collection
 

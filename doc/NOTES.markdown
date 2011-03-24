@@ -16,6 +16,7 @@ Woldumar's Mission is to educate people about the natural environment. For over 
   8. Batch email capabilities using Woldumar database and embedding graphics into email.
   9. Expanding use of Facebook and possibility of adding Twitter and/or other social networking tools.
   10. To create a user-friendly (like Flash) atmosphere within the website.
+  11. Sound effects.
 
 ## User goals
 
@@ -54,3 +55,19 @@ Mouse-over menu, limited scrolling, earth colors,
 ## Accessibility
 
 Appreciated.
+
+# Database
+
+Contacts, members, volunteers, transactions, contact groups
+
+* Financials through Peachtree
+* Would like ability at least import/export data
+
+# Priorities
+
+* Design
+* Registration 
+* Contact management
+* Shopping cart -> integration with existing database
+* Contact data entered on website to update constant contact
+* Podcasts/videos of trails, etc.
