@@ -19,3 +19,7 @@ db/*.sqlite3
 *.sw?
 *.idea/*
 *.iml
+.bundle
+db/*.sqlite3
+log/*.log
+tmp/
