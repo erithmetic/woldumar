@@ -1,0 +1,15 @@
+<p>Welcome, <%= current_user.full_name %></p>
+<ul>
+	<li>
+		<%= link_to "Events", events_path %>
+	</li>
+	<li>
+		<%= link_to "Camps", camps_path %>
+	</li>
+  <li>
+    <%= link_to "Users", url_for(:action => :users) %>
+  </li>
+  <li>
+    <%= link_to "Authorize.Net Credentials", url_for(:action => :edit_authorize_net_credentials) %>
+  </li>
+</ul>

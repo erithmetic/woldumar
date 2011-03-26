@@ -1,0 +1,15 @@
+<h1>Upcoming events</h1>
+<ul class="events">
+  <% @events.each do |event| %>
+    <li>
+      <h2><%= event.name %></h2>
+      <p>Happening <%= date_range(event.start_date, event.end_date) %></p>
+      <p class="description"><%= event.description %></p>
+      <p class="details"><%= event.details %></p>
+      <% if event.flier.file? %>
+        <%= link_to 'View flier', event.flier.url %>
+      <% end %>
+      <%= link_to "Register for #{event.name}", new_event_event_registration_path(event) %>
+    </li>
+  <% end %>
+</ul>

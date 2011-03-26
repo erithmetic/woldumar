@@ -40,6 +40,18 @@
   <%= @camp.discount %>
 </p>
 
-
+<%= link_to 'Add Session', new_camp_session_path(@camp) %> |
 <%= link_to 'Edit', edit_camp_path(@camp) %> |
 <%= link_to 'Back', camps_path %>
+
+<h2>Sessions</h2>
+
+<ul>
+	<% @camp.sessions.each do |session| %>
+		<li>
+			<%= session.start_date %> - <%= session.end_date %>:
+			<%= session.name %>, <%= session.code %>
+			- <%= link_to 'Edit', edit_camp_session_path(@camp, session) %>
+		</li>
+	<% end %>
+</ul>

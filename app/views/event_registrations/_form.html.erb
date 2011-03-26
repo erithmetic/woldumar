@@ -1,0 +1,24 @@
+<%= form_for(@event_registration) do |f| %>
+  <% if @event_registration.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@event_registration.errors.count, "error") %> prohibited this event_registration from being saved:</h2>
+
+      <ul>
+      <% @event_registration.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <% if current_user %>
+    <%= render :partial => 'shared/display_user_info', :locals => { :user => current_user } %>
+  <% else %>
+    If you are a member or you've registered with us before, you can 
+    <%= link_to 'log in', new_user_session_path %> using your email.
+    <%= render :partial => 'shared/user_info', :locals => { :user => @user } %>
+  <% end %>
+  <div class="actions">
+    <%= f.submit 'Register' %>
+  </div>
+<% end %>
