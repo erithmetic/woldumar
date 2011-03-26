@@ -41,7 +41,7 @@
 			
 			<div class="field">
 				<%= child_form.check_box '_destroy' %>
-				<%= child_form.label '_delete', 'Remove' %>
+				<%= child_form.label '_destroy', 'Remove' %>
 			</div>
 			
 			<% child_form.fields_for :session_child_registrations do |session_form| %>
@@ -50,10 +50,25 @@
 						<%= session_form.label :session %>
 						<%= session_form.select :session_id, @sessions.map{|s| [s.name, s.id]} %>
 					</div>
+					
+					<div class="field">
+						<%= session_form.label :photo %>
+						<%= session_form.check_box :photo %>
+					</div>
+					
+					<div class="field">
+						<%= session_form.label :early_discount %>
+						<%= session_form.check_box :early_discount %>
+					</div>
+				
+					<div class="field">
+						<%= session_form.label :extended_care_cost %>
+						<%= session_form.text_field :extended_care_cost %>
+					</div>
 				
 					<div class="field">
 						<%= session_form.check_box '_destroy' %>
-						<%= session_form.label '_delete', 'Remove' %>
+						<%= session_form.label '_destroy', 'Remove' %>
 					</div>
 				</div>
 			<% end %>

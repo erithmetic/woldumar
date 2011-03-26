@@ -44,6 +44,7 @@ class SessionRegistrationsController < ApplicationController
   # POST /session_registrations
   # POST /session_registrations.xml
   def create
+    @sessions = Session.all
     @session_registration = current_user.session_registrations.new(params[:session_registration])
 
     respond_to do |format|
