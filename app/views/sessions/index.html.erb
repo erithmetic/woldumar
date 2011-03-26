@@ -30,4 +30,5 @@
 
 <br />
 
-<%= link_to 'New Session', new_camp_session_path(@camp) %>
+<%= link_to 'New Session', new_camp_session_path(@camp) %> |
+Back to Event: <%= link_to "#{@camp.name}", @camp %>
