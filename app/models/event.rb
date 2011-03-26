@@ -1,3 +1,3 @@
 class Event < ActiveRecord::Base
-  has_many :occurences
+  has_many :occurrences
 end

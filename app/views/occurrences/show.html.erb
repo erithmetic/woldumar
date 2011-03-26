@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Start:</b>
+  <%= @occurrence.start %>
+</p>
+
+<p>
+  <b>End:</b>
+  <%= @occurrence.end %>
+</p>
+
+<p>
+  <b>Price:</b>
+  <%= @occurrence.price %>
+</p>
+
+<p>
+  <b>Details:</b>
+  <%= @occurrence.details %>
+</p>
+
+
+<%= link_to 'Edit', edit_event_occurrence_path([@event, @occurrence]) %> |
+<%= link_to 'Back', event_occurrences_path(@event) %>
