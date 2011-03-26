@@ -6,4 +6,4 @@ ActionView::Helpers::AssetTagHelper.register_stylesheet_expansion :print => ['pr
 ActionView::Helpers::AssetTagHelper.register_stylesheet_expansion :ie => ['ie']
 
 # JavaScript expansions - order is semi-crucial
-ActionView::Helpers::AssetTagHelper.register_javascript_expansion :defaults => ['jquery', 'jquery-ui', 'rails', 'jquery.nivo.slider']
+ActionView::Helpers::AssetTagHelper.register_javascript_expansion :defaults => ['jquery', 'jquery-ui', 'rails', 'jquery.nivo.slider', 'jsddm']
