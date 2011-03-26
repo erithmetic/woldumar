@@ -8,7 +8,7 @@ begin
   require 'rspec'
   require 'rspec/core/rake_task'
   Rspec::Core::RakeTask.new :rspec
-rescue
+rescue LoadError
 end
 
 Woldumar::Application.load_tasks
