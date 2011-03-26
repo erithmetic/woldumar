@@ -2,27 +2,27 @@
   <legend>Your information</legend>
   <div class="field">
     <%= label_tag 'user[first_name]', 'First name' %>
-    <%= text_field_tag 'user[first_name]', '', :id => 'first_name' %>
+    <%= text_field_tag 'user[first_name]', user.first_name, :id => 'first_name' %>
   </div>
   <div class="field">
     <%= label_tag 'user[last_name]', 'Last name' %>
-    <%= text_field_tag 'user[last_name]', '', :id => 'last_name' %>
+    <%= text_field_tag 'user[last_name]', user.last_name, :id => 'last_name' %>
   </div>
   <div class="field">
     <%= label_tag 'user[email]', 'Email' %>
-    <%= text_field_tag 'user[email]', '', :id => 'email' %>
+    <%= text_field_tag 'user[email]', user.email, :id => 'email' %>
   </div>
   <div class="field">
     <%= label_tag 'user[address_line_1]', 'Address' %>
-    <%= text_field_tag 'user[address_line_1]', '', :id => 'address_line_1' %>
+    <%= text_field_tag 'user[address_line_1]', user.address_line_1, :id => 'address_line_1' %>
   </div>
   <div class="field">
     <%= label_tag 'user[address_line_2]', 'Address 2' %>
-    <%= text_field_tag 'user[address_line_2]', '', :id => 'address_line_2' %>
+    <%= text_field_tag 'user[address_line_2]', user.address_line_2, :id => 'address_line_2' %>
   </div>
   <div class="field">
     <%= label_tag 'user[city]', 'City' %>
-    <%= text_field_tag 'user[city]', '', :id => 'city' %>
+    <%= text_field_tag 'user[city]', user.city, :id => 'city' %>
   </div>
   <div class="field">
     <%= label_tag 'user[state]', 'State' %>
