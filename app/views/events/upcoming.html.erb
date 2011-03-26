@@ -9,7 +9,7 @@
       <% if event.flier %>
         <%= link_to 'View flier', event.flier.url %>
       <% end %>
-      <%= link_to "Register for #{event.name}", new_event_registration_path(event) %>
+      <%= link_to "Register for #{event.name}", new_event_event_registration_path(event) %>
     </li>
   <% end %>
 </ul>

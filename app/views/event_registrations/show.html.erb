@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Event:</b>
+  <%= @event_registration.event_id %>
+</p>
+
+<p>
+  <b>User:</b>
+  <%= @event_registration.user_id %>
+</p>
+
+<p>
+  <b>Cc auth:</b>
+  <%= @event_registration.cc_auth %>
+</p>
+
+
+<%= link_to 'Edit', edit_event_registration_path(@event_registration) %> |
+<%= link_to 'Back', event_registrations_path %>

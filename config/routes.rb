@@ -1,4 +1,6 @@
 Woldumar::Application.routes.draw do
+  resources :event_registrations
+
   devise_for :users
 
   resources :camps do 
@@ -9,7 +11,7 @@ Woldumar::Application.routes.draw do
     collection do
       get :upcoming
     end
-
+    resources :event_registrations
   end
 
   resources :donations
