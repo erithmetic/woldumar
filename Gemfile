@@ -5,6 +5,7 @@ gem 'rails', '3.0.5'
 gem 'activemerchant'
 gem 'devise'
 gem 'haml'
+gem 'high_voltage'
 gem 'jquery-rails'
 
 group :production do
