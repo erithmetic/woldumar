@@ -4,12 +4,17 @@ module ApplicationHelper
       <<-EOF
 <img src="/#{filename.split(/\//)[-3..-1].join("/")}" alt="">
       EOF
-    end.join("")
+    end
 
-    raw image_tags
+    yield image_tags if block_given?
+    raw(image_tags.join(""))
   end
   
-  def slider_javascript_tag(slider_id)
-    javascript_tag "$(window).load(function() { $('##{slider_id}').nivoSlider(); });" 
+  def slider_javascript_tag(options = {})
+    slider_id = options[:id].is_a?(String) ? options[:id] : "slider"
+    js = "$(window).load(function() { $('##{slider_id}').nivoSlider(); });" 
+    
+    yield js if block_given?
+    javascript_tag js
   end
 end
