@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110326001216) do
+ActiveRecord::Schema.define(:version => 20110326003031) do
 
   create_table "events", :force => true do |t|
     t.string   "name"
@@ -30,8 +30,8 @@ ActiveRecord::Schema.define(:version => 20110326001216) do
   end
 
   create_table "occurrences", :force => true do |t|
-    t.datetime "start"
-    t.datetime "end"
+    t.datetime "start_date"
+    t.datetime "end_date"
     t.decimal  "price"
     t.text     "details"
     t.datetime "created_at"
