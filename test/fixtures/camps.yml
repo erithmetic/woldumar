@@ -1,0 +1,21 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  name: MyString
+  min_age: 1
+  max_age: 1
+  start_time: 2011-03-25 21:51:57
+  end_time: 2011-03-25 21:51:57
+  details: MyText
+  fee: 9.99
+  discount: 9.99
+
+two:
+  name: MyString
+  min_age: 1
+  max_age: 1
+  start_time: 2011-03-25 21:51:57
+  end_time: 2011-03-25 21:51:57
+  details: MyText
+  fee: 9.99
+  discount: 9.99

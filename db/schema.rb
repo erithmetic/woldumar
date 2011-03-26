@@ -10,7 +10,20 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110326010651) do
+ActiveRecord::Schema.define(:version => 20110326015507) do
+
+  create_table "camps", :force => true do |t|
+    t.string   "name"
+    t.integer  "min_age"
+    t.integer  "max_age"
+    t.datetime "start_time"
+    t.datetime "end_time"
+    t.text     "details"
+    t.decimal  "fee"
+    t.decimal  "discount"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "events", :force => true do |t|
     t.string   "name"
@@ -20,6 +33,16 @@ ActiveRecord::Schema.define(:version => 20110326010651) do
     t.text     "details"
     t.datetime "start_date"
     t.datetime "end_date"
+  end
+
+  create_table "occurrences", :force => true do |t|
+    t.datetime "start"
+    t.datetime "end"
+    t.decimal  "price"
+    t.text     "details"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "event_id"
   end
 
 end
