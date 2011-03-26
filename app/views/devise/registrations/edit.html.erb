@@ -19,7 +19,7 @@
     <%= f.text_field :last_name %></p>
 
     <p><%= f.label :birth_date %><br />
-    <%= f.date_select :birth_date %></p>
+    <%= f.date_select :birth_date, { :start_year => 1900, :end_year => Time.now.year } %></p>
 
     <p><%= f.label :address_line_1 %><br />
     <%= f.text_field :address_line_1 %></p>
