@@ -8,12 +8,27 @@
     <!--[if lt IE 9]>
       <%= stylesheet_link_tag :ie, :cache => 'cache/ie', :media => 'screen, projection' %>
     <![endif]-->
-    
+
     <%= javascript_include_tag :defaults, :cache => 'cache/woldumar' %>
+    <script type="text/javascript" src="/javascripts/jsddm.js"></script>
     
     <%= csrf_meta_tag %>
+
   </head>
   <body>
-    <%= yield %>
+    <div class="two-col">
+      <div id="header" class="span-24 last">
+        <h1>This is the Header</h1>
+      </div>
+      <div id="subheader" class="span-24 last">
+        <%= nav_bar %>
+      </div>
+      <div id="content" class="span-24 last">
+        <%= yield %>
+      </div>
+      <div id="footer" class="span-24 last">
+        Footer
+      </div>
+    </div>
   </body>
 </html>

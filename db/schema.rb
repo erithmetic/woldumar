@@ -51,6 +51,16 @@ ActiveRecord::Schema.define(:version => 20110326153000) do
     t.datetime "end_date"
   end
 
+  create_table "occurrences", :force => true do |t|
+    t.datetime "start"
+    t.datetime "end"
+    t.decimal  "price"
+    t.text     "details"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "event_id"
+  end
+
   create_table "sessions", :force => true do |t|
     t.date     "start_date"
     t.date     "end_date"
