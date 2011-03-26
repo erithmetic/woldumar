@@ -9,7 +9,7 @@ gem 'high_voltage'
 gem 'jquery-rails'
 
 group :production do
-  gem 'mysql'
+#  gem 'mysql'  # commented out because mysql is causing fits when mysql doesn't exist.
 end
 
 group :development do
