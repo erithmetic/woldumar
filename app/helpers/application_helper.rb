@@ -27,5 +27,8 @@ module ApplicationHelper
     
     yield js if block_given?
     javascript_tag js
+    end.join("")
+
+    raw image_tags
   end
 end
