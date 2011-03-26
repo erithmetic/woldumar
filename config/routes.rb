@@ -1,4 +1,6 @@
 Woldumar::Application.routes.draw do
+  devise_for :users
+
   resources :camps do 
     resources :sessions
   end
