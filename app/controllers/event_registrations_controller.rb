@@ -25,6 +25,7 @@ class EventRegistrationsController < ApplicationController
   # GET /event_registrations/new.xml
   def new
     @event_registration = EventRegistration.new
+    @user = current_user ? current_user : User.new
 
     respond_to do |format|
       format.html # new.html.erb
@@ -41,6 +42,10 @@ class EventRegistrationsController < ApplicationController
   # POST /event_registrations.xml
   def create
     @event_registration = EventRegistration.new(params[:event_registration])
+    if params[:user]
+      user = User.new params[:user]
+      user.save
+    end
 
     respond_to do |format|
       if @event_registration.save

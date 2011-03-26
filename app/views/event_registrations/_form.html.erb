@@ -11,19 +11,14 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :event_id %><br />
-    <%= f.text_field :event_id %>
-  </div>
-  <div class="field">
-    <%= f.label :user_id %><br />
-    <%= f.text_field :user_id %>
-  </div>
-  <div class="field">
-    <%= f.label :cc_auth %><br />
-    <%= f.text_field :cc_auth %>
-  </div>
+  <% if current_user %>
+    <%= render :partial => 'shared/display_user_info', :locals => { :user => current_user } %>
+  <% else %>
+    If you are a member or you've registered with us before, you can 
+    <%= link_to 'log in', new_user_session_path %> using your email.
+    <%= render :partial => 'shared/user_info', :locals => { :user => @user } %>
+  <% end %>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit 'Register' %>
   </div>
 <% end %>
