@@ -14,8 +14,8 @@ admins.each do |email_frozen, name|
   if User.create(:email => email,
                  :password => 'secret',
                  :password_confirmation => 'secret',
-                 :first_name => lname,
-                 :last_name => fname,
+                 :first_name => fname,
+                 :last_name => lname,
                  :is_admin => true)
     print "success!\n"
   else
