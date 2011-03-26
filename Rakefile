@@ -5,6 +5,8 @@ require File.expand_path('../config/application', __FILE__)
 require 'rake'
 
 require 'rspec'
-require 'rspec-rails'
+require 'rspec/core/rake_task'
 
 Woldumar::Application.load_tasks
+
+Rspec::Core::RakeTask.new :rspec
