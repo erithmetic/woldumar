@@ -17,4 +17,21 @@ class AssetsController < ApplicationController
     response.content_type = 'text/css'
     render :text => @output
   end
+
+  def javascripts
+    @output = ""
+    package = params[:package].to_sym
+    script_map = {
+      :woldumar => ['jquery', 'jquery-ui', 'rails', 'jquery.nivo.slider', 'jsddm', 'application']
+    }
+
+    if not script_map[package].nil?
+      script_map[package].map! {|script| "#{Rails.root}/app/javascripts/#{params[:package]}/#{script}.js"}
+      script_map[package].each {|file| @output += File.open(file, 'r').read}
+    end
+
+    response.headers['Cache-Control'] = "public, max-age=#{1.year.seconds.to_i}" unless Rails.env.development?
+    response.content_type = 'text/javascript'
+    render :text => @output
+  end
 end

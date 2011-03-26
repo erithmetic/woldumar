@@ -1,12 +1,24 @@
 require 'nav_item'
 
 module ApplicationHelper
+  def most_recent_date_in_folder(folder)
+    Dir.glob(folder).map {|file| File.mtime(file).to_i}.max
+  end
+
   def cached_stylesheet_tag(package, options = {})
-    last_modified_date = Dir.glob("#{Rails.root}/app/stylesheets/#{package}").map {|file| File.mtime(file).to_i}.max
-    full_stylesheet_path = stylesheet_path(package) + "?" + last_modified_date.to_s
+    last_modified_date = most_recent_date_in_folder "#{Rails.root}/app/stylesheets/#{package}"
+    full_css_path = stylesheet_path(package) + "?" + last_modified_date.to_s
   
-    yield full_stylesheet_path if block_given?
-    stylesheet_link_tag full_stylesheet_path, options
+    yield full_css_path if block_given?
+    stylesheet_link_tag full_css_path, options
+  end
+
+  def cached_javascript_tag(package, options = {})
+    last_modified_date = most_recent_date_in_folder "#{Rails.root}/app/javascripts/#{package}"
+    full_js_path = javascript_path(package) + "?" + last_modified_date.to_s
+
+    yield full_js_path if block_given?
+    javascript_include_tag full_js_path, options
   end
   
   def slider_image_tags

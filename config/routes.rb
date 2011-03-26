@@ -19,6 +19,7 @@ Woldumar::Application.routes.draw do
   match '/admin(/:action(/:id))', :to => 'admin'
 
   match '/stylesheets/:package.css', :to => 'assets#stylesheets', :as => 'stylesheet'
+  match '/javascripts/:package.js', :to => 'assets#javascripts', :as => 'javascript'
 
   match '/:id(.format)', :to => 'pages#show', :as => :page, :constraints => { :id => /.+/ }
   root :controller => :pages, :action => :show, :id => 'home'
