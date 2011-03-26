@@ -1,4 +1,5 @@
 class SessionsController < ApplicationController
+  before_filter :require_admin, :except => [:index, :show]
   before_filter :load_camp
 
 
