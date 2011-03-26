@@ -41,9 +41,14 @@ class DonationsController < ApplicationController
   # POST /donations.xml
   def create
     @donation = Donation.new(params[:donation])
+    transaction = Transaction.new params.merge(
+      :first_name => params[:donation][:first_name], 
+      :last_name => params[:donation][:last_name],
+      :amount => params[:donation][:amount])
+
 
     respond_to do |format|
-      if @donation.save
+      if @donation.save && transaction.post
         format.html { redirect_to(@donation, :notice => 'Donation was successfully created.') }
         format.xml  { render :xml => @donation, :status => :created, :location => @donation }
       else

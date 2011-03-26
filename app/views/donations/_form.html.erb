@@ -39,22 +39,21 @@
     <%= f.label :state %><br />
     <%= f.text_field :state %>
   </div>
-  <div class="field">
+  <div class="field required">
     <%= f.label :zip %><br />
     <%= f.text_field :zip %>
   </div>
   <div class="field">
-    <%= f.label :phone %><br />
+    <%= f.label :phone, 'Phone number' %><br />
     <%= f.text_field :phone %>
   </div>
-  <div class="field">
-    <%= f.label :amount %><br />
+  <div class="field required">
+    <%= f.label :amount, 'Donation amount' %><br />
     <%= f.text_field :amount %>
   </div>
-  <div class="field">
-    <%= f.label :cc_auth %><br />
-    <%= f.text_field :cc_auth %>
-  </div>
+
+  <%= render :partial => 'shared/payment' %>
+
   <div class="actions">
     <%= f.submit %>
   </div>
