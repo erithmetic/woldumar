@@ -20,4 +20,16 @@ class AdminController < ApplicationController
       render :action => :edit_user
     end
   end
+
+  def edit_authorize_net_credentials
+    @credentials = AuthorizeNetCredential.first
+  end
+
+  def update_authorize_net_credentials
+    if AuthorizeNetCredential.first.update_attributes(params[:authorize_net_credential])
+      redirect_to url_for(:action => :edit_authorize_net_credentials), :notice => 'User was successfully updated'
+    else
+      render :action => :edit_authorize_net_credentials
+    end
+  end
 end
