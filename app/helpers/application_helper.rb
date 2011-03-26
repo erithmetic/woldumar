@@ -1,6 +1,15 @@
 require 'nav_item'
 
 module ApplicationHelper
+  def cached_stylesheet_tag(package, options = {})
+    puts "#{Rails.root}/app/stylesheets/#{package}"
+    last_modified_date = Dir.glob("#{Rails.root}/app/stylesheets/#{package}").map {|file| File.mtime(file).to_i}.max
+    full_stylesheet_path = stylesheet_path(package) + "?" + last_modified_date.to_s
+  
+    yield full_stylesheet_path if block_given?
+    stylesheet_link_tag full_stylesheet_path, options
+  end
+  
   def slider_image_tags
     image_tags = Dir.glob("#{Rails.root}/public/images/slider/*").map do |filename|
       <<-EOF
