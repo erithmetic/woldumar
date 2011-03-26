@@ -11,7 +11,7 @@ class User < ActiveRecord::Base
   def is_admin?
     is_admin
   end
-
+                              
   def is_member?
     is_member
   end
