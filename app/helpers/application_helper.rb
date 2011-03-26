@@ -2,7 +2,6 @@ require 'nav_item'
 
 module ApplicationHelper
   def cached_stylesheet_tag(package, options = {})
-    puts "#{Rails.root}/app/stylesheets/#{package}"
     last_modified_date = Dir.glob("#{Rails.root}/app/stylesheets/#{package}").map {|file| File.mtime(file).to_i}.max
     full_stylesheet_path = stylesheet_path(package) + "?" + last_modified_date.to_s
   
