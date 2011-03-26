@@ -2,7 +2,7 @@
   <legend>Credit Card Information</legend>
   <div class="field required">
     <%= label_tag :cc_number, 'Credit card number' %><br />
-    <%= text_field_tag :cc_number, :size => 16 %>
+    <%= text_field_tag :cc_number, nil, :size => 16 %>
   </div>
   <div class="field required">
     <span>Expiration</span>
@@ -11,6 +11,6 @@
   </div>
   <div class="field required">
     <%= label_tag :cc_ccv, 'Verification number (3-digit code on reverse side of card)' %><br />
-    <%= text_field_tag :cc_ccv, :size => 3 %>
+    <%= text_field_tag :cc_ccv, nil, :size => 3 %>
   </div>
 </fieldset>
