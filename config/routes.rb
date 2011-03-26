@@ -10,6 +10,8 @@ Woldumar::Application.routes.draw do
   end
 
   resources :donations
+  
+  match '/admin(/:action(/:id))', :to => 'admin'
 
   match '/stylesheets/:package.css', :to => 'assets#stylesheets', :as => 'stylesheet'
 
