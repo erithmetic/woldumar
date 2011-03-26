@@ -37,6 +37,8 @@ GEM
     braintree (2.9.1)
       builder
     builder (2.1.2)
+    compass (0.10.6)
+      haml (>= 3.0.4)
     devise (1.2.0)
       bcrypt-ruby (~> 2.1.2)
       orm_adapter (~> 0.0.3)
@@ -104,12 +106,11 @@ PLATFORMS
 
 DEPENDENCIES
   activemerchant
+  compass
   devise
-  haml
   high_voltage
   jquery-rails
   mysql
   rails (= 3.0.5)
-  rspec
   rspec-rails
   sqlite3

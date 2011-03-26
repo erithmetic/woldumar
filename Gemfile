@@ -4,7 +4,7 @@ gem 'rails', '3.0.5'
 
 gem 'activemerchant'
 gem 'devise'
-gem 'haml'
+gem 'compass'
 gem 'high_voltage'
 gem 'jquery-rails'
 
@@ -17,7 +17,6 @@ group :development do
 end
 
 group :test do
-  gem 'rspec'
-  gem 'rspec-rails'
   gem 'sqlite3'
+  gem 'rspec-rails'
 end
