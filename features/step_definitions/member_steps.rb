@@ -8,8 +8,11 @@ Given /I am logged in as "([^"]*)" with email "([^"]*)"(?: having (admin|member|
           [!privileges.nil?, !privileges.nil?] : [@privileges == "admin", @privileges == "member"]
   @name_parts = name.split(/\s+/)
 
-  User.new(:first_name => @name_parts[0], :last_name => @name_parts[1], :email => email, :password => "password",
-           :password_confirmation => "password", :is_admin => @admin, :is_member => @member).save!
+  @user = User.new(:first_name => @name_parts[0], :last_name => @name_parts[1], :email => email, :password => "password",
+           :password_confirmation => "password")
+  @user.is_admin = @admin
+  @user.is_member = @member
+  @user.save!
 
   And %{I go to the admin page}
   And %{I fill in "user_email" with "#{email}"}
