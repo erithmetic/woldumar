@@ -31,6 +31,10 @@
     <%= f.label :end_date %><br />
     <%= f.datetime_select :end_date %>
   </div>
+  <div class="field">
+    <%= f.label :flier, 'Event flier' %><br />
+    <%= f.file_field :flier %>
+  </div>
   <div class="actions">
     <%= f.submit %>
   </div>

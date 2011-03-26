@@ -1,10 +1,19 @@
 class EventsController < ApplicationController
-  before_filter :require_admin, :except => [:index, :show]
+  before_filter :require_admin, :except => [:index, :show, :upcoming]
 
   # GET /events
   # GET /events.xml
   def index
     @events = Event.all
+
+    respond_to do |format|
+      format.html # index.html.erb
+      format.xml  { render :xml => @events }
+    end
+  end
+
+  def upcoming
+    @events = Event.upcoming
 
     respond_to do |format|
       format.html # index.html.erb

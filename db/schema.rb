@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110326153000) do
+ActiveRecord::Schema.define(:version => 20110326181121) do
 
   create_table "camps", :force => true do |t|
     t.string   "name"
@@ -49,6 +49,10 @@ ActiveRecord::Schema.define(:version => 20110326153000) do
     t.text     "details"
     t.datetime "start_date"
     t.datetime "end_date"
+    t.string   "flier_file_name"
+    t.string   "flier_content_type"
+    t.integer  "flier_file_size"
+    t.datetime "flier_updated_at"
   end
 
   create_table "sessions", :force => true do |t|
