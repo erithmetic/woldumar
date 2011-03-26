@@ -10,6 +10,8 @@ Woldumar::Application.routes.draw do
   end
 
   resources :donations
+  
+  match '/admin(/:action(/:id))', :to => 'admin'
 
   match '/:id(.format)', :to => 'pages#show', :as => :page, :constraints => { :id => /.+/ }
 
