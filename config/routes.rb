@@ -1,4 +1,7 @@
 Woldumar::Application.routes.draw do
+  resources :events do
+    resources :occurrences
+  end
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
