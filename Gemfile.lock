@@ -49,6 +49,7 @@ GEM
     celerity (0.8.8)
     childprocess (0.1.8)
       ffi (~> 1.0.6)
+    chronic (0.3.0)
     compass (0.10.6)
       haml (>= 3.0.4)
     configuration (1.2.0)
@@ -153,6 +154,7 @@ PLATFORMS
 DEPENDENCIES
   activemerchant
   capybara
+  chronic
   compass
   cucumber
   cucumber-rails
