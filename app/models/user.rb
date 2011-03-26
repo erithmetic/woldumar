@@ -4,10 +4,13 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable, :validatable
 
   validates_presence_of :first_name, :last_name
+  has_many :session_registrations
+  
+  accepts_nested_attributes_for :session_registrations
 
-  # Setup accessible (or protected) attributes for your model
-  # attr_accessible :email, :password, :password_confirmation, :remember_me
-  attr_accessible :is_admin, :is_member
+  # These fields are protected from mass assignment.  You cannot call User.new(...) with these attributes.  You must
+  # set them singly.
+  attr_protected :is_admin, :is_member
 
   def is_admin?
     is_admin

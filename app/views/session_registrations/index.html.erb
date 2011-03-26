@@ -1,0 +1,25 @@
+<h1>Listing session_registrations</h1>
+
+<table>
+  <tr>
+    <th>User</th>
+    <th>Cc auth</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @session_registrations.each do |session_registration| %>
+  <tr>
+    <td><%= session_registration.user_id %></td>
+    <td><%= session_registration.cc_auth %></td>
+    <td><%= link_to 'Show', session_registration %></td>
+    <td><%= link_to 'Edit', edit_session_registration_path(session_registration) %></td>
+    <td><%= link_to 'Destroy', session_registration, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Session registration', new_session_registration_path %>
