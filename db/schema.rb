@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110326141825) do
+ActiveRecord::Schema.define(:version => 20110326153000) do
 
   create_table "camps", :force => true do |t|
     t.string   "name"
@@ -94,6 +94,16 @@ ActiveRecord::Schema.define(:version => 20110326141825) do
     t.string   "country"
     t.boolean  "is_admin",                            :default => false
     t.boolean  "is_member",                           :default => false
+    t.string   "title"
+    t.string   "middle_name"
+    t.date     "birth_date"
+    t.string   "address_line_3"
+    t.string   "home_phone"
+    t.string   "work_phone"
+    t.string   "work_phone_ext"
+    t.string   "mobile_phone"
+    t.string   "fax"
+    t.text     "notes"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
