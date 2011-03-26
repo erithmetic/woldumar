@@ -24,3 +24,4 @@ Woldumar::Application.configure do
   config.action_dispatch.best_standards_support = :builtin
 end
 
+ActiveMerchant::Billing::Base.mode = :test
