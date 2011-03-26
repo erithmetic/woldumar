@@ -56,9 +56,8 @@ module ApplicationHelper
         page_path('activities') => [
           NavItem.new('Field trips', page_path('field_trips')),
           NavItem.new('Camps', page_path('camps')),
-          NavItem.new('Special events', page_path('special_events')),
-          NavItem.new('TRAC team building', page_path('trac_team_building')),
-          NavItem.new('Calendar of events', events_path)
+          NavItem.new('Upcoming events', upcoming_events_path),
+          NavItem.new('TRAC team building', page_path('trac_team_building'))
         ]
       },
       'Services' => {
@@ -105,5 +104,13 @@ module ApplicationHelper
     end
     output += "</ul>"
     output.html_safe
+  end
+
+  def date_range(start, stop)
+    if start && stop
+      "from #{start.strftime('%A, %B %e, %Y')} to #{stop.strftime('%A, %B %e, %Y')}"
+    elsif start
+      "on #{start.strftime('%A, %B %e, %Y')}"
+    end
   end
 end

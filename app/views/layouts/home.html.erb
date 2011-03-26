@@ -2,14 +2,15 @@
 <html>
   <head>
     <title>Woldumar</title>
-    <%= cached_stylesheet_tag 'screen', :media => 'screen, projection' %>
-    <%= cached_stylesheet_tag 'print', :media => 'print' %>
+    <%= stylesheet_link_tag :screen, :cache => 'cache/screen', :media => 'screen, projection' %>
+    <%= stylesheet_link_tag :print, :cache => 'cache/print', :media => 'print' %>
     
     <!--[if lt IE 9]>
-      <%= cached_stylesheet_tag 'ie', :media => 'screen, projection' %>
+      <%= stylesheet_link_tag :ie, :cache => 'cache/ie', :media => 'screen, projection' %>
     <![endif]-->
 
     <%= javascript_include_tag :defaults, :cache => 'cache/woldumar' %>
+    <script type="text/javascript" src="/javascripts/jsddm.js"></script>
     
     <%= csrf_meta_tag %>
 

@@ -6,7 +6,10 @@ Woldumar::Application.routes.draw do
   end
 
   resources :events do
-    resources :occurrences
+    collection do
+      get :upcoming
+    end
+
   end
 
   resources :donations
