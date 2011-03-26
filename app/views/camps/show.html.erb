@@ -51,6 +51,7 @@
 		<li>
 			<%= session.start_date %> - <%= session.end_date %>:
 			<%= session.name %>, <%= session.code %>
+			- <%= link_to 'Edit', edit_camp_session_path(@camp, session) %>
 		</li>
 	<% end %>
 </ul>
