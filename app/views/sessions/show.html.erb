@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Start date:</b>
+  <%= @session.start_date %>
+</p>
+
+<p>
+  <b>End date:</b>
+  <%= @session.end_date %>
+</p>
+
+<p>
+  <b>Camp:</b>
+  <%= @session.camp_id %>
+</p>
+
+<p>
+  <b>Name:</b>
+  <%= @session.name %>
+</p>
+
+<p>
+  <b>Code:</b>
+  <%= @session.code %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @session.description %>
+</p>
+
+
+<%= link_to 'Edit', edit_camp_session_path(@camp, @session) %> |
+<%= link_to 'Back', camp_sessions_path(@camp) %>

@@ -1,9 +1,11 @@
 Woldumar::Application.routes.draw do
-  resources :camps
-
-  resources :events do
-    resources :occurrences
+  resources :camps do
+    resources :sessions
   end
+
+  resources :events
+
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

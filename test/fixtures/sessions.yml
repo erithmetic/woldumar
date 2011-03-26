@@ -1,0 +1,17 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  start_date: 2011-03-25
+  end_date: 2011-03-25
+  camp_id: 1
+  name: MyString
+  code: MyString
+  description: MyText
+
+two:
+  start_date: 2011-03-25
+  end_date: 2011-03-25
+  camp_id: 1
+  name: MyString
+  code: MyString
+  description: MyText
