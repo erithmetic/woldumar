@@ -54,12 +54,12 @@ module ApplicationHelper
   def navs
     {
       'Home' => root_path,
-      'About us' => {
+      'About Us' => {
         page_path('about_us') => [
           NavItem.new('History', page_path('about_us/history')),
-          NavItem.new('Nature areas', page_path('about_us/nature_areas')),
+          NavItem.new('Nature Areas', page_path('about_us/nature_areas')),
           NavItem.new('News', page_path('about_us/news')),
-          NavItem.new('Staff &amp; board', page_path('about_us/staff_and_board')),
+          NavItem.new('Staff & Board', page_path('about_us/staff_and_board')),
           NavItem.new('Employment', page_path('about_us/employment'))
         ]
       },
@@ -67,14 +67,14 @@ module ApplicationHelper
         page_path('activities') => [
           NavItem.new('Field trips', page_path('activities/field_trips')),
           NavItem.new('Camps', page_path('activities/camps')),
-          NavItem.new('Upcoming events', upcoming_events_path),
-          NavItem.new('TRAC team building', page_path('activities/trac_team_building'))
+          NavItem.new('Upcoming Events', upcoming_events_path),
+          NavItem.new('TRAC Team Building', page_path('activities/trac_team_building'))
         ]
       },
       'Services' => {
         page_path('services') => [
-          NavItem.new('Bird seed', page_path('services/bird_seed')),
-          NavItem.new('Native plants', page_path('services/native_plants')),
+          NavItem.new('Bird Seed', page_path('services/bird_seed')),
+          NavItem.new('Native Plants', page_path('services/native_plants')),
           NavItem.new('Honey', page_path('services/honey')),
           NavItem.new('Rentals', page_path('services/rental'))
         ]
@@ -84,14 +84,14 @@ module ApplicationHelper
           NavItem.new('Donations', new_donation_path),
           NavItem.new('Membership', page_path('get_involved/membership')),
           NavItem.new('Volunteer', page_path('get_involved/volunteer')),
-          NavItem.new('Wish list', page_path('get_involved/wish_list'))
+          NavItem.new('Wish List', page_path('get_involved/wish_list'))
         ]
       },
-      'Contact us' => {
+      'Contact Us' => {
         page_path('contact_us') => [
           NavItem.new('Hours', page_path('contact_us/hours')),
           NavItem.new('Directions', page_path('contact_us/directions')),
-          NavItem.new('Site map', page_path('contact_us/site_map'))
+          NavItem.new('Site Map', page_path('contact_us/site_map'))
         ]
       }
     }
