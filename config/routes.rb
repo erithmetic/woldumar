@@ -11,7 +11,8 @@ Woldumar::Application.routes.draw do
 
   resources :donations
 
-  match '/:id(.format)', :to => 'pages#show', :as => :page, :constraints => { :id => /.+/ }
+  match '/stylesheets/:package.css', :to => 'assets#stylesheets', :as => 'stylesheet'
 
+  match '/:id(.format)', :to => 'pages#show', :as => :page, :constraints => { :id => /.+/ }
   root :controller => :pages, :action => :show, :id => 'home'
 end
