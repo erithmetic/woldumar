@@ -23,8 +23,9 @@ db/*.sqlite3
 .bundle
 db/*.sqlite3
 log/*.log
-public/stylesheets/*.css
+public/stylesheets/*
 tmp/
 public/stylesheets/*.css
 public/stylesheets/cache/*.css
 public/javascripts/cache/*.js
+public/javascripts/woldumar.js
