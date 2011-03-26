@@ -10,6 +10,21 @@
   <%= @event.description %>
 </p>
 
+<p>
+  <b>Details:</b>
+  <%= @event.details %>
+</p>
+
+<p>
+  <b>Start Date:</b>
+  <%= @event.start_date %>
+</p>
+
+<p>
+  <b>End Date:</b>
+  <%= @event.end_date %>
+</p>
+
 
 <%= link_to 'Edit', edit_event_path(@event) %> |
 <%= link_to 'Back', events_path %>
