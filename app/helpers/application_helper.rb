@@ -82,7 +82,8 @@ module ApplicationHelper
     output = "<ul class=\"site_nav\">\n"
     navs.each do |top_name, top_path|
       if top_path.is_a? Hash
-        output += "<li>\n"
+        output += "<li>\n" 
+        output += link_to(top_name, top_path.keys.first) + "\n"
         output += "<ul>\n"
         top_path[top_path.keys.first].each do |nav_item|
           output += "<li>" + link_to(nav_item.name, nav_item.path) + "</li>\n"
@@ -90,7 +91,7 @@ module ApplicationHelper
         output += "</ul>\n"
         output += "</li>\n"
       else
-        output += "<li>" + link_to(top_name, top_path) + "</li>"
+        output += "<li>" + link_to(top_name, top_path) + "</li>\n"
       end
     end
     output += "</ul>"
