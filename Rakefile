@@ -4,4 +4,7 @@
 require File.expand_path('../config/application', __FILE__)
 require 'rake'
 
+require 'rspec'
+require 'rspec-rails'
+
 Woldumar::Application.load_tasks
