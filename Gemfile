@@ -1,8 +1,22 @@
 source 'http://rubygems.org'
 
 gem 'rails', '3.0.5'
-gem 'sqlite3'
 
-gem 'haml'
+gem 'activemerchant'
 gem 'devise'
+gem 'haml'
 gem 'jquery-rails'
+
+group :production do
+  gem 'mysql'
+end
+
+group :development do
+  gem 'sqlite3'
+end
+
+group :test do
+  gem 'rspec'
+  gem 'rspec-rails'
+  gem 'sqlite3'
+end
