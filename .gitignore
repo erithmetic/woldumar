@@ -17,3 +17,12 @@ coverage/*
 db/*.sqlite3
 *.tmproj
 *.sw?
+*.idea/*
+*.iml
+.bundle
+db/*.sqlite3
+log/*.log
+tmp/
+public/stylesheets/*.css
+public/stylesheets/cache/*.css
+public/javascripts/cache/*.js

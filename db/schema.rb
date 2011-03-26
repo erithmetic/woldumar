@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110326020147) do
+ActiveRecord::Schema.define(:version => 20110326015507) do
 
   create_table "camps", :force => true do |t|
     t.string   "name"
@@ -21,6 +21,22 @@ ActiveRecord::Schema.define(:version => 20110326020147) do
     t.text     "details"
     t.decimal  "fee"
     t.decimal  "discount"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "donations", :force => true do |t|
+    t.string   "in_memory_of"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "email"
+    t.string   "address"
+    t.string   "city"
+    t.string   "state"
+    t.string   "zip"
+    t.string   "phone"
+    t.decimal  "amount",       :precision => 10, :scale => 2, :default => 0.0
+    t.integer  "cc_auth"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -44,16 +60,4 @@ ActiveRecord::Schema.define(:version => 20110326020147) do
     t.datetime "updated_at"
     t.integer  "event_id"
   end
-
-  create_table "sessions", :force => true do |t|
-    t.date     "start_date"
-    t.date     "end_date"
-    t.integer  "camp_id"
-    t.string   "name"
-    t.string   "code"
-    t.text     "description"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
 end

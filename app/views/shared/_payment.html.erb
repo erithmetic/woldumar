@@ -1,0 +1,16 @@
+<fieldset>
+  <legend>Credit Card Information</legend>
+  <div class="field required">
+    <%= label_tag :cc_number, 'Credit card number' %><br />
+    <%= text_field_tag :cc_number, :size => 16 %>
+  </div>
+  <div class="field required">
+    <span>Expiration</span>
+    <%= select_month(Date.today, :field_name => :cc_expiration_month) %>
+    <%= select_year(Date.today, :field_name => :cc_expiration_year, :start_year => Date.today.year) %>
+  </div>
+  <div class="field required">
+    <%= label_tag :cc_ccv, 'Verification number (3-digit code on reverse side of card)' %><br />
+    <%= text_field_tag :cc_ccv, :size => 3 %>
+  </div>
+</fieldset>
