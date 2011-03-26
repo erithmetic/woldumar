@@ -1,4 +1,6 @@
 class CampsController < ApplicationController
+  before_filter :require_admin, :except => [:index, :show]
+  
   # GET /camps
   # GET /camps.xml
   def index
