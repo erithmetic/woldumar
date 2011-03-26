@@ -65,10 +65,10 @@ module ApplicationHelper
       },
       'Activities' => {
         page_path('activities') => [
-          NavItem.new('Field trips', page_path('activites/field_trips')),
-          NavItem.new('Camps', page_path('activites/camps')),
+          NavItem.new('Field trips', page_path('activities/field_trips')),
+          NavItem.new('Camps', page_path('activities/camps')),
           NavItem.new('Upcoming events', upcoming_events_path),
-          NavItem.new('TRAC team building', page_path('activites/trac_team_building'))
+          NavItem.new('TRAC team building', page_path('activities/trac_team_building'))
         ]
       },
       'Services' => {
