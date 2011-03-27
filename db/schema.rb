@@ -89,16 +89,6 @@ ActiveRecord::Schema.define(:version => 20110327175920) do
     t.datetime "flier_updated_at"
   end
 
-  create_table "occurrences", :force => true do |t|
-    t.datetime "start"
-    t.datetime "end"
-    t.decimal  "price"
-    t.text     "details"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "event_id"
-  end
-
   create_table "orders", :force => true do |t|
     t.integer  "cc_auth"
     t.datetime "date"
