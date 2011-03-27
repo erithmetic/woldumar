@@ -4,12 +4,12 @@ class AssetsController < ApplicationController
     package = params[:package].to_sym
     
     css_packages = {
-      :screen => ['reset', 'layout', 'typography', 'home', 'nivo-slider', 'jdd'],
+      :screen => ['reset', 'layout', 'typography', 'home', 'pic_rotator', 'jdd'],
       :print => [],
       :ie => []
     }
     js_packages = {
-      :woldumar => ['jquery', 'jquery-ui', 'rails', 'jquery.nivo.slider', 'jsddm', 'application']
+      :woldumar => ['jquery', 'pic_rotator', 'jquery-ui', 'rails', 'jsddm', 'application']
     }
 
     case params[:type]
