@@ -41,8 +41,8 @@ body {
 
 #contact {
   padding-top: 1.5em;
-  h3, p { display: table; margin: 0 auto; }
-  h3 { font-size: large; font-weight: bold; margin-bottom: .5em; }
+  h3, p { font-size: 14px; display: table; margin: 0 auto; font-family: "trebuchetms", arial, helvetica; color: #50420E  }
+  h3 { letter-spacing: 2px; font-size: 25px; font-family: "trebuchetms", arial, helvetica; font-weight: bold; margin-bottom: .5em; color: #839500 }
   p { padding: 0; }
 }
 
@@ -60,6 +60,9 @@ body {
 
 #footer_text {
   text-align: center;
+  font-family: arial, helvetica;
+  color: #50420E;
+  font-size: 14px;
 }
 
 #footer_block {
