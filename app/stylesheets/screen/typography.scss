@@ -3,12 +3,19 @@
 
 body { font-family: Georgia, Times, "Times New Roman", serif; }
 h1 { font-size: xx-large; font-weight: bold; text-align: center; }
+h2 { font-size: large; font-weight: bold; }
 p { margin: .5em 0; }
 ul {
   list-style-type: circle;
   padding-top: 1em;
   li { padding-left: 1em; padding-bottom: 1em; }
 }
+
+legend { font-size: large; font-family: Georgia, Times, "Times New Roman", serif; font-weight: bold; margin-bottom: 1em; display: block; padding-bottom: 1em; }
+div.field { clear: both; }
+label { width: 150px; float: left; }
+
+p.note { margin: 1em; font-style: italic; }
 
 div.index {
   h1 { padding-bottom: 1em; }

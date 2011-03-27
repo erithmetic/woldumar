@@ -147,4 +147,9 @@ print 'Creating camps...'
 end
 print " done.\n\n"
 
+print 'Creating products...'
+require 'product_matrix'
+ProductMatrix.populate
+print " done.\n\n"
+
 puts 'Great success, is nice!'

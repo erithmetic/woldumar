@@ -11,6 +11,12 @@ describe EventRegistration do
                             :number => '1234'})
   }
 
+  it 'validates at least one ticket is purchased' do
+    e = Event.new :name => 'test'
+    e.should_not be_valid
+    e.errors.on(:event_tickets).should be_present
+  end
+
   describe '#transaction' do
     it 'is initialized with credit card info' do
       event_registration.transaction.first_name.should == 'foo'
