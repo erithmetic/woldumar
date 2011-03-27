@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110327033000) do
+ActiveRecord::Schema.define(:version => 20110327150635) do
 
   create_table "authorize_net_credentials", :force => true do |t|
     t.string   "username"
@@ -26,8 +26,8 @@ ActiveRecord::Schema.define(:version => 20110327033000) do
     t.datetime "start_time"
     t.datetime "end_time"
     t.text     "details"
-    t.decimal  "fee",        :default => 0.01
-    t.decimal  "discount",   :default => 0.0
+    t.decimal  "fee"
+    t.decimal  "discount"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -125,7 +125,7 @@ ActiveRecord::Schema.define(:version => 20110327033000) do
     t.integer  "cc_auth"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.decimal  "total_cost"
+    t.decimal  "total_cost", :default => 0.0
   end
 
   create_table "sessions", :force => true do |t|

@@ -1,6 +1,7 @@
 class SessionRegistration < ActiveRecord::Base
   belongs_to :user
   has_many :children, :dependent => :destroy
+  
   money_column :total_cost
   
   accepts_nested_attributes_for :children
@@ -18,6 +19,6 @@ class SessionRegistration < ActiveRecord::Base
         cost -= BigDecimal('10.00') if scr.early_discount
       end
     end
-    total_cost = "$#{cost}"
+    self.total_cost = "$#{cost}"
   end
 end
