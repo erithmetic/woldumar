@@ -1,5 +1,5 @@
 class SessionRegistrationsController < ApplicationController
-  
+  before_filter :authenticate_user!, :except => [:new, :create]
   # GET /session_registrations
   # GET /session_registrations.xml
   def index
@@ -33,7 +33,7 @@ class SessionRegistrationsController < ApplicationController
     end
     
     @sessions = Session.all
-    @session_registration = current_user.session_registrations.new
+    @session_registration = @user.session_registrations.new
     @session_registration.children.build.session_child_registrations.build
 
     respond_to do |format|
