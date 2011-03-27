@@ -1,22 +1,23 @@
 class Transaction
-  attr_accessor :first_name, :last_name, :cc_number, :cc_expiration_month,
-    :cc_expiration_year, :cc_ccv, :message, :amount
+  attr_accessor :first_name, :last_name, :number, :expiration_month,
+    :expiration_year, :ccv, :message, :amount
 
   def initialize(params)
     params.each do |name, value|
       next if value.is_a? Hash
       self.send "#{name}=", value
     end
+    self.amount ||= 0
   end
 
   def credit_card
     @credit_card ||= ActiveMerchant::Billing::CreditCard.new(
-      :number     => cc_number,
-      :month      => cc_expiration_month,
-      :year       => cc_expiration_year,
+      :number     => number,
+      :month      => expiration_month,
+      :year       => expiration_year,
       :first_name => first_name,
       :last_name  => last_name,
-      :verification_value  => cc_ccv
+      :verification_value  => ccv
     )
   end
 
@@ -29,9 +30,9 @@ class Transaction
   end
 
   def post
+    return true if number.blank?
     if credit_card.valid?
-      # Authorize for $10 dollars (1000 cents) 
-      response = gateway.authorize(1000, credit_card)
+      response = gateway.authorize((amount * 100).to_i, credit_card)
 
       if response.success?
         # Capture the money

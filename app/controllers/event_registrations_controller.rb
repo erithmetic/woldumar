@@ -1,4 +1,6 @@
 class EventRegistrationsController < ApplicationController
+  before_filter :require_admin, :except => [:new, :create]
+
   # GET /event_registrations
   # GET /event_registrations.xml
   def index
@@ -24,6 +26,7 @@ class EventRegistrationsController < ApplicationController
   # GET /event_registrations/new
   # GET /event_registrations/new.xml
   def new
+    @event = Event.find params[:event_id]
     @event_registration = EventRegistration.new
 
     if current_user
@@ -39,11 +42,6 @@ class EventRegistrationsController < ApplicationController
     end
   end
 
-  # GET /event_registrations/1/edit
-  def edit
-    @event_registration = EventRegistration.find(params[:id])
-  end
-
   # POST /event_registrations
   # POST /event_registrations.xml
   def create
@@ -51,40 +49,22 @@ class EventRegistrationsController < ApplicationController
     if current_user
       @user = current_user
     else
-      password = params[:email] ? User.generate_password(params[:email]) : ''
+      password = params[:user][:email] ? User.generate_password(params[:user][:email])[0..19] : ''
       @user = User.new params[:user].merge(:password => password, :password_confirmation => password) 
       success = @user.save
     end
 
-    puts params.inspect
-    @event_registration = EventRegistration.new(:event_id => params[:event_id], :user => @user)
+    @event = Event.find params[:event_id]
+    @event_registration = EventRegistration.new(:event => @event, :user => @user, :credit_card => params[:credit_card])
     success &= @event_registration.save
 
     clear_stored_location
 
     respond_to do |format|
       if success
-        format.html { redirect_to(@event_registration, :notice => 'Event registration was successfully created.') }
-        format.xml  { render :xml => @event_registration, :status => :created, :location => @event_registration }
+        format.html { redirect_to(@event, :notice => "You are registered for #{@event.name}.") }
       else
         format.html { render :action => "new" }
-        format.xml  { render :xml => @event_registration.errors, :status => :unprocessable_entity }
-      end
-    end
-  end
-
-  # PUT /event_registrations/1
-  # PUT /event_registrations/1.xml
-  def update
-    @event_registration = EventRegistration.find(params[:id])
-
-    respond_to do |format|
-      if @event_registration.update_attributes(params[:event_registration])
-        format.html { redirect_to(@event_registration, :notice => 'Event registration was successfully updated.') }
-        format.xml  { head :ok }
-      else
-        format.html { render :action => "edit" }
-        format.xml  { render :xml => @event_registration.errors, :status => :unprocessable_entity }
       end
     end
   end

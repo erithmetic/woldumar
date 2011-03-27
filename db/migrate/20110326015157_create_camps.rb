@@ -7,8 +7,8 @@ class CreateCamps < ActiveRecord::Migration
       t.datetime :start_time
       t.datetime :end_time
       t.text :details
-      t.decimal :fee
-      t.decimal :discount
+      t.decimal :fee, :precision => 10, :scale => 2, :default => 0.01
+      t.decimal :discount, :precision => 10, :scale => 2, :default => 0.0
 
       t.timestamps
     end

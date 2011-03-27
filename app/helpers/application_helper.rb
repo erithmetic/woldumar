@@ -2,7 +2,7 @@ require 'nav_item'
 
 module ApplicationHelper
   def most_recent_date_in_folder(folder)
-    Dir.glob(folder).map {|file| File.mtime(file).to_i}.max
+    Dir.glob(folder + '/*').map {|file| File.mtime(file).to_i}.max
   end
 
   def cached_stylesheet_tag(package, options = {})
@@ -58,7 +58,6 @@ module ApplicationHelper
         page_path('about_us') => [
           NavItem.new('History', page_path('about_us/history')),
           NavItem.new('Nature Areas', page_path('about_us/nature_areas')),
-          NavItem.new('News', page_path('about_us/news')),
           NavItem.new('Staff & Board', page_path('about_us/staff_and_board')),
           NavItem.new('Employment', page_path('about_us/employment'))
         ]
@@ -103,12 +102,12 @@ module ApplicationHelper
     navs.each do |top_name, top_path|
       if top_path.is_a? Hash
         if counter == navs.length
-          output += "<li class=\"#{top_name.underscore} last\">\n" 
+          output += "<li class=\"#{top_name.downcase().sub(' ', '_')} last\">\n"
         else
-          output += "<li class=\"#{top_name.underscore}\">\n" 
+          output += "<li class=\"#{top_name.downcase().sub(' ', '_')}\">\n"
         end
         output += link_to(top_name, top_path.keys.first) + "\n"
-        output += "<ul class=\"#{top_name.underscore}\">\n"
+        output += "<ul class=\"#{top_name.downcase().sub(' ', '_')}\">\n"
         top_path[top_path.keys.first].each do |nav_item|
           output += "<li>" + link_to(nav_item.name, nav_item.path) + "</li>\n"
         end
@@ -116,9 +115,9 @@ module ApplicationHelper
         output += "</li>\n"
       else
         if counter == navs.length
-          output += "<li class=\"#{top_name.underscore} last\">\n" 
+          output += "<li class=\"#{top_name.downcase().sub(' ', '_')} last\">\n"
         else
-          output += "<li class=\"#{top_name.underscore}\">\n" 
+          output += "<li class=\"#{top_name.downcase().sub(' ', '_')}\">\n"
         end
         output += link_to(top_name, top_path) + "</li>\n".html_safe
       end

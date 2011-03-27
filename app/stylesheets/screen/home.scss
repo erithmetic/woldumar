@@ -1,0 +1,50 @@
+/* home.scss
+*/
+
+$radius: 2ex;
+
+#slider-container, #slider-bar {
+  width: 900px;
+  margin: 0 auto;
+}
+
+#slider-container {
+	height: 288px;
+	background-color: #50420E;
+}
+
+#slider-bar {
+	height: 104px;
+	background-image: url(../images/brown_bar.png);
+	background-repeat: no-repeat;
+}
+
+#col-container {
+  margin: 1em 0;
+  overflow: auto;
+}
+
+#left-col {
+	float: left;
+	width: 70%;
+}
+
+#right-col {
+  float: left;
+	width: 28%;
+}
+
+.box {
+  float: right;
+  clear: both;
+  width: 90%;
+  margin-bottom: 1em;
+  padding: .5em;
+  border: 1px #cccccc solid;
+  background-color: white;
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+  border-radius: $radius;
+
+  h3 { margin-bottom: .5em; font-size: large; font-weight: bold; }
+}
