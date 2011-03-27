@@ -55,7 +55,7 @@ class EventRegistrationsController < ApplicationController
     end
 
     @event = Event.find params[:event_id]
-    @event_registration = EventRegistration.new(:event => @event, :user => @user)
+    @event_registration = EventRegistration.new(:event => @event, :user => @user, :credit_card => params[:credit_card])
     success &= @event_registration.save
 
     clear_stored_location

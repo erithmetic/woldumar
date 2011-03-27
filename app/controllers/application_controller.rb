@@ -17,4 +17,12 @@ private
   def clear_stored_location
     session[:return_to] = nil
   end
+
+  def after_sign_in_path_for(resource)
+    if request.session[:return_to].nil?
+      super
+    else
+      request.session[:return_to]
+    end
+  end
 end

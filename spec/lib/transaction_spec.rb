@@ -4,9 +4,9 @@ require 'transaction'
 describe Transaction do
   describe '#initialize' do
     it 'assigns attributes according to provided parameters' do
-      t = Transaction.new :cc_number => '1234', 
-        :cc_expiration_year => '2012', :cc_expiration_month => '07',
-        :cc_ccv => '123',
+      t = Transaction.new :number => '1234', 
+        :expiration_year => '2012', :expiration_month => '07',
+        :ccv => '123',
         :donation => {
           :first_name => 'Derek', 
           :last_name => 'Kastner',
@@ -16,10 +16,10 @@ describe Transaction do
         :last_name => 'Kastner',
         :amount => 123.4
 
-      t.cc_number.should == '1234'
-      t.cc_expiration_year.should == '2012'
-      t.cc_expiration_month.should == '07'
-      t.cc_ccv.should == '123'
+      t.number.should == '1234'
+      t.expiration_year.should == '2012'
+      t.expiration_month.should == '07'
+      t.ccv.should == '123'
       t.amount.should == 123.4
       t.first_name.should == 'Derek'
       t.last_name.should == 'Kastner'
@@ -28,9 +28,9 @@ describe Transaction do
 
   describe '#post' do
     let(:transaction) do
-      Transaction.new :cc_number => '1234', 
-        :cc_expiration_year => '2012', :cc_expiration_month => '07',
-        :cc_ccv => '123'
+      Transaction.new :number => '1234', 
+        :expiration_year => '2012', :expiration_month => '07',
+        :ccv => '123'
     end
 
     before :each do
@@ -57,6 +57,11 @@ describe Transaction do
       @gateway_response.stub!(:message).and_return 'I failed'
       transaction.post
       transaction.message.should == 'I failed'
+    end
+    it 'returns true if no credit card number is entered' do
+      transaction.number = nil
+      transaction.post.should be_true
+      transaction.message.should be_nil
     end
   end
 end

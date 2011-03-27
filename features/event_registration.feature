@@ -19,11 +19,13 @@ Feature: Event registration
 
   Scenario: Successful registration with credit card
     Given a "owl prowl" event exists
+    And my credit card is valid
     When I go to the homepage
     And I follow "Upcoming Events"
     And I follow "Register for owl prowl"
     And I fill in "first_name" with "Derek"
     And I fill in "last_name" with "Kastner"
+    And I fill in "email" with "derek@kastner.com"
     And I fill in "address_line_1" with "123 Main St"
     And I fill in "city" with "Lansing"
     And I select "Michigan" from "user_state"
@@ -35,7 +37,7 @@ Feature: Event registration
     And I press "Register"
     Then I should see "You are registered"
 
-  Scenario: Successful registration as a member with credit card
+  Scenario: Successful registration as a member without credit card
     Given a "owl prowl" event exists
     And a member with email "derek@kastner.com" and password "secret" exists
     When I go to the homepage
@@ -51,6 +53,7 @@ Feature: Event registration
   Scenario: Successful registration as a member with credit card
     Given a "owl prowl" event exists
     And a member with email "derek@kastner.com" and password "secret" exists
+    And my credit card is valid
     When I go to the homepage
     And I follow "Upcoming Events"
     And I follow "Register for owl prowl"
@@ -67,6 +70,21 @@ Feature: Event registration
 
   Scenario: New user missing required fields
     Given a "owl prowl" event exists
+    When I go to the homepage
+    And I follow "Upcoming Events"
+    And I follow "Register for owl prowl"
+    And I fill in "first_name" with "Derek"
+    And I fill in "last_name" with "Kastner"
+    And I fill in "address_line_1" with "123 Main St"
+    And I fill in "city" with "Lansing"
+    And I select "Michigan" from "user_state"
+    And I fill in "postal_code" with "48915"
+    And I press "Register"
+    Then I should see "error"
+
+  Scenario: Invalid credit card
+    Given a "owl prowl" event exists
+    And my credit card is invalid
     When I go to the homepage
     And I follow "Upcoming Events"
     And I follow "Register for owl prowl"

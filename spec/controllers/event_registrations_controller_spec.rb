@@ -72,42 +72,6 @@ describe EventRegistrationsController do
     end
   end
 
-  describe "PUT update" do
-    describe "with valid params" do
-      it "updates the requested event_registration" do
-        EventRegistration.stub(:find).with("37") { mock_event_registration }
-        mock_event_registration.should_receive(:update_attributes).with({'these' => 'params'})
-        put :update, :id => "37", :event_registration => {'these' => 'params'}
-      end
-
-      it "assigns the requested event_registration as @event_registration" do
-        EventRegistration.stub(:find) { mock_event_registration(:update_attributes => true) }
-        put :update, :id => "1"
-        assigns(:event_registration).should be(mock_event_registration)
-      end
-
-      it "redirects to the event_registration" do
-        EventRegistration.stub(:find) { mock_event_registration(:update_attributes => true) }
-        put :update, :id => "1"
-        response.should redirect_to(event_registration_url(mock_event_registration))
-      end
-    end
-
-    describe "with invalid params" do
-      it "assigns the event_registration as @event_registration" do
-        EventRegistration.stub(:find) { mock_event_registration(:update_attributes => false) }
-        put :update, :id => "1"
-        assigns(:event_registration).should be(mock_event_registration)
-      end
-
-      it "re-renders the 'edit' template" do
-        EventRegistration.stub(:find) { mock_event_registration(:update_attributes => false) }
-        put :update, :id => "1"
-        response.should render_template("edit")
-      end
-    end
-  end
-
   describe "DELETE destroy" do
     it "destroys the requested event_registration" do
       EventRegistration.stub(:find).with("37") { mock_event_registration }
