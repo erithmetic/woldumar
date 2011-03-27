@@ -27,5 +27,11 @@
     </ul>
   </td></tr></table>
 
+	<% if current_user && current_user.is_admin? %>
+		<p>
+			<%= link_to 'Manage Sessions', camp_sessions_path(@camp) %>
+		</p>
+	<% end %>
+
   <h3><%= link_to 'Back', all_camps_path %></h3>
 </div>

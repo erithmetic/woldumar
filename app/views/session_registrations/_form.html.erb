@@ -98,7 +98,7 @@
 		
 							<div class="field">
 								<%= session_form.label :extended_care_cost %>
-								<%= session_form.text_field :extended_care_cost, {:class => 'session'} %>
+								<%= session_form.select :extended_care_cost, %w{ 0.00 15.00 30.00 }, {:class => 'session'} %>
 							</div>
 		
 							<div class="field">
