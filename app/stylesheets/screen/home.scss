@@ -14,9 +14,66 @@ $radius: 2ex;
 }
 
 #slider-bar {
-	height: 104px;
 	background-image: url(../images/brown_bar.png);
 	background-repeat: no-repeat;
+	height: 104px;
+	width: 900px;
+}
+
+.right_side {
+	    float: right;
+	    width: 145 px;
+	    height: 97px;
+	    padding-top: 20px;
+	    padding-left: -10px;
+}
+
+.photo{
+	width: 88;
+	height: 58;
+	margin-top: 15px;
+	margin-left: 10px;
+	margin-bottom: 10px;
+}
+
+.sec1 {
+	float: left;
+	height: 103px;
+	width: 270px;
+	margin-top: 0px;
+	margin-bottom: 0px;
+	margin-left: 15px;
+	margin-right: 15px;
+}
+
+.dot {
+	height: 10px;
+	width: 13px;
+	background-image: url(../images/dot.png);
+	background-repeat: no-repeat;
+	padding: 0px;
+	margin-left: 20px;
+	margin-right: 5px;
+	margin-top: 9px;
+	float: left;
+}
+
+.read_more {
+	width: 80px;
+	float: left;
+	margin-right: 45px;
+	margin-top: 7px;
+	margin-bottom: 0px;
+	color: #C67700;
+	font-size: 12px;
+	font-family: arial;
+}
+
+.sec_title1{
+	font-family: times new roman;
+	color: #E0BD70;
+	font-size: 22px;
+	padding-bottom: 5px;
 }
 
 #col-container {
