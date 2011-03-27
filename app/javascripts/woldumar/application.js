@@ -17,7 +17,9 @@ $(function() {
           $t.attr('name', $t.attr('name').replace(count, count+1));
           $t.attr('id', $t.attr('id').replace(count, count+1));
         }
-        $t.val('');
+        if ($t.attr('type') != 'radio') {
+          $t.val('');
+        }
         $t.attr('checked', '');
       }
     });
