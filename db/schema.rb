@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110327150635) do
+ActiveRecord::Schema.define(:version => 20110327163525) do
 
   create_table "authorize_net_credentials", :force => true do |t|
     t.string   "username"
@@ -74,16 +74,6 @@ ActiveRecord::Schema.define(:version => 20110327150635) do
     t.datetime "flier_updated_at"
   end
 
-  create_table "occurrences", :force => true do |t|
-    t.datetime "start"
-    t.datetime "end"
-    t.decimal  "price"
-    t.text     "details"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "event_id"
-  end
-
   create_table "orders", :force => true do |t|
     t.integer  "cc_auth"
     t.datetime "date"
@@ -128,7 +118,13 @@ ActiveRecord::Schema.define(:version => 20110327150635) do
     t.integer  "cc_auth"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.decimal  "total_cost", :default => 0.0
+    t.decimal  "total_cost",          :default => 0.0
+    t.string   "parent2_first_name"
+    t.string   "parent2_last_name"
+    t.string   "parent2_home_phone"
+    t.string   "parent2_work_phone"
+    t.string   "parent2_other_phone"
+    t.string   "parent2_email"
   end
 
   create_table "sessions", :force => true do |t|

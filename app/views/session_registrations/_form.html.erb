@@ -10,6 +10,45 @@
       </ul>
     </div>
   <% end %>
+	<h2>Parent/Guardian I Information</h2>
+	<% if current_user %>
+    <%= render :partial => 'shared/display_user_info', :locals => { :user => current_user } %>
+  <% else %>
+    If you are a member or you've registered with us before, you can 
+    <%= link_to 'log in', new_user_session_path %> using your email.
+    <%= render :partial => 'shared/user_info', :locals => { :user => @user } %>
+  <% end %>
+	<h2>Parent/Guardian II Information</h2>
+	<div class="field">
+		<%= reg_form.label :parent2_first_name %>
+		<%= reg_form.text_field :parent2_first_name %>
+	</div>
+	
+	<div class="field">
+		<%= reg_form.label :parent2_last_name %>
+		<%= reg_form.text_field :parent2_last_name %>
+	</div>
+	
+	<div class="field">
+		<%= reg_form.label :parent2_home_phone %>
+		<%= reg_form.text_field :parent2_home_phone %>
+	</div>
+	
+	<div class="field">
+		<%= reg_form.label :parent2_work_phone %>
+		<%= reg_form.text_field :parent2_work_phone %>
+	</div>
+	
+	<div class="field">
+		<%= reg_form.label :parent2_other_phone %>
+		<%= reg_form.text_field :parent2_other_phone %>
+	</div>
+	
+	<div class="field">
+		<%= reg_form.label :parent2_email %>
+		<%= reg_form.text_field :parent2_email %>
+	</div>
+	<h2>Children Information</h2>
 	<div class="children">
 		<div class="child">
 			<% reg_form.fields_for :children do |child_form| %>
@@ -43,22 +82,18 @@
 					<%= child_form.check_box '_destroy',  {:class => 'destroy'} %>
 					<%= child_form.label '_destroy', 'Remove' %>
 				</div>
+				<h2>Session Information</h2>
 				<% child_form.fields_for :session_child_registrations do |session_form| %>
 					<div class="sessions">
 						<div class="session">
 							<div class="field">
 								<%= session_form.label :session %>
-								<%= session_form.select :session_id, @sessions.map{|s| [s.name, s.id]}, {:prompt => "Select Session"}, {:class => 'session'} %>
+								<%= session_form.select :session_id, @sessions.map{|s| ["#{s.name} - $#{s.camp.fee}", s.id]}, {:prompt => "Select Session"}, {:class => 'session'} %>
 							</div>
 			
 							<div class="field">
 								<%= session_form.label :photo %>
-								<%= session_form.check_box :photo, {:class => 'session'} %>
-							</div>
-			
-							<div class="field">
-								<%= session_form.label :early_discount %>
-								<%= session_form.check_box :early_discount, {:class => 'session'} %>
+								<%= session_form.check_box :photo, {:class => 'session'} %> (+ $5.00)
 							</div>
 		
 							<div class="field">
@@ -79,7 +114,7 @@
 		</div>
 	</div>
 	<input id="add_child" type="button" value="Add Child" />
-
+	<%= render :partial => 'shared/payment' %>
   <div class="actions">
     <%= reg_form.submit %>
   </div>
