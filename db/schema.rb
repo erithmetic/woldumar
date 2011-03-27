@@ -145,7 +145,13 @@ ActiveRecord::Schema.define(:version => 20110327175920) do
     t.integer  "cc_auth"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.decimal  "total_cost", :default => 0.0
+    t.decimal  "total_cost",          :default => 0.0
+    t.string   "parent2_first_name"
+    t.string   "parent2_last_name"
+    t.string   "parent2_home_phone"
+    t.string   "parent2_work_phone"
+    t.string   "parent2_other_phone"
+    t.string   "parent2_email"
   end
 
   create_table "sessions", :force => true do |t|

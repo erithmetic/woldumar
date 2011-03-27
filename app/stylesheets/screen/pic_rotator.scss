@@ -1,0 +1,27 @@
+/* CSS Document */
+
+/* rotator in-page placement */
+div#rotator {
+	width: 900px;
+	height: 288px;
+	float: none;
+	padding: 0 0px 0px 0 ;
+	margin: 0px 0 0 -14px;
+}
+ul#pic_format{
+	margin: 0px;
+	padding: 0px;
+}
+/* rotator css */
+	div#rotator ul li {
+	position: absolute;
+	list-style: none;
+}
+/* rotator image style */	
+	div#rotator ul li img {
+	padding: 0px;
+}
+div#rotator ul li.show
+{
+	z-index:500;
+}
