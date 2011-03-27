@@ -1,4 +1,6 @@
 Woldumar::Application.routes.draw do
+  resources :session_registrations
+
   resources :event_registrations
 
   devise_for :users

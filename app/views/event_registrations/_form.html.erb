@@ -17,6 +17,7 @@
     If you are a member or you've registered with us before, you can 
     <%= link_to 'log in', new_user_session_path %> using your email.
     <%= render :partial => 'shared/user_info', :locals => { :user => @user } %>
+    <%= render :partial => 'shared/payment' %>
   <% end %>
   <div class="actions">
     <%= f.submit 'Register' %>

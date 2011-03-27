@@ -16,6 +16,8 @@ module NavigationHelpers
     #
     #   when /^(.*)'s profile page$/i
     #     user_profile_path(User.find_by_login($1))
+    when /the admin page/
+      url_for(:action => "index", :controller => "admin")  
 
     else
       begin

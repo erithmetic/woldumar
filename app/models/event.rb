@@ -1,5 +1,7 @@
 require 'chronic'
 class Event < ActiveRecord::Base
+  has_many :event_registrations
+
   scope :upcoming, :conditions => ['end_date >= ?', Time.now]
 
   has_attached_file :flier

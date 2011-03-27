@@ -25,7 +25,13 @@ class EventRegistrationsController < ApplicationController
   # GET /event_registrations/new.xml
   def new
     @event_registration = EventRegistration.new
-    @user = current_user ? current_user : User.new
+
+    if current_user
+      @user = current_user
+    else
+      @user = User.new
+      store_location
+    end
 
     respond_to do |format|
       format.html # new.html.erb
@@ -41,14 +47,23 @@ class EventRegistrationsController < ApplicationController
   # POST /event_registrations
   # POST /event_registrations.xml
   def create
-    @event_registration = EventRegistration.new(params[:event_registration])
-    if params[:user]
-      user = User.new params[:user]
-      user.save
+    success = true
+    if current_user
+      @user = current_user
+    else
+      password = params[:email] ? User.generate_password(params[:email]) : ''
+      @user = User.new params[:user].merge(:password => password, :password_confirmation => password) 
+      success = @user.save
     end
 
+    puts params.inspect
+    @event_registration = EventRegistration.new(:event_id => params[:event_id], :user => @user)
+    success &= @event_registration.save
+
+    clear_stored_location
+
     respond_to do |format|
-      if @event_registration.save
+      if success
         format.html { redirect_to(@event_registration, :notice => 'Event registration was successfully created.') }
         format.xml  { render :xml => @event_registration, :status => :created, :location => @event_registration }
       else
