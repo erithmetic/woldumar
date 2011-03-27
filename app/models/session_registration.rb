@@ -21,7 +21,7 @@ class SessionRegistration < ActiveRecord::Base
         cost -= scr.session.camp.discount.value if user.is_member?
         cost += BigDecimal("#{scr.extended_care_cost}") if scr.extended_care_cost
         cost += BigDecimal('5.00') if scr.photo
-        cost -= BigDecimal('10.00') if scr.early_discount
+        cost -= BigDecimal('10.00') if Time.now.to_date <= Date.new(Time.now.year, 5, 15)
       end
     end
     self.total_cost = "$#{cost}"
