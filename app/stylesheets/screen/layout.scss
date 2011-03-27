@@ -72,6 +72,8 @@ body {
 	height: 30px;
 }
 
+fieldset { border-bottom: 1px solid gray; margin-bottom: 2em; padding-bottom: 1em; }
+
 fieldset.child_form {
 	padding: 0 0 0 15px;
 }

@@ -2,8 +2,8 @@
   <legend>Credit Card Information</legend>
   <p class="note">You may pay now by credit card, or pay by check later</p>
   <div class="field required">
-    <%= label_tag 'credit_card[number]', 'Credit card number' %><br />
-    <%= text_field_tag 'credit_card[number]', nil, :size => 16 %>
+    <%= label_tag 'credit_card[number]', 'Credit card number' %>
+    <%= text_field_tag 'credit_card[number]', nil, :style => 'width: 16em;' %>
   </div>
   <div class="field required">
     <span>Expiration</span>
@@ -11,7 +11,7 @@
     <%= select_year(Date.today, { :start_year => Date.today.year }, :name => 'credit_card[expiration_year]', :id => 'credit_card_expiration_year') %>
   </div>
   <div class="field required">
-    <%= label_tag 'credit_card[ccv]', 'Verification number (3-digit code on reverse side of card)' %><br />
+    <%= label_tag 'credit_card[ccv]', 'Verification number (3-digit code on reverse side of card)' %>
     <%= text_field_tag 'credit_card[ccv]', nil, :size => 3 %>
   </div>
 </fieldset>
