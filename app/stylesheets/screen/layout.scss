@@ -1,5 +1,6 @@
-@charset "utf-8";
-/* CSS Document */
+/* layout.scss
+*/
+
 body {
 	margin: 0px;
 	padding: 0px;
@@ -51,7 +52,7 @@ body {
 	height: 5px;
 }
 #bottom_divider {
-  width: 900;
+  width: 900px;
   margin: 10px 40px 0 40px;
   height: 5px;
   background: #603A18;
