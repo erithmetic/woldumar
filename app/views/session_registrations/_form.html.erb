@@ -10,7 +10,7 @@
       </ul>
     </div>
   <% end %>
-
+	<h2>Parent/Guardian I Information</h2>
 	<% if current_user %>
     <%= render :partial => 'shared/display_user_info', :locals => { :user => current_user } %>
   <% else %>
@@ -18,7 +18,7 @@
     <%= link_to 'log in', new_user_session_path %> using your email.
     <%= render :partial => 'shared/user_info', :locals => { :user => @user } %>
   <% end %>
-
+	<h2>Parent/Guardian II Information</h2>
 	<div class="field">
 		<%= reg_form.label :parent2_first_name %>
 		<%= reg_form.text_field :parent2_first_name %>
@@ -48,7 +48,7 @@
 		<%= reg_form.label :parent2_email %>
 		<%= reg_form.text_field :parent2_email %>
 	</div>
-
+	<h2>Children Information</h2>
 	<div class="children">
 		<div class="child">
 			<% reg_form.fields_for :children do |child_form| %>
@@ -82,6 +82,7 @@
 					<%= child_form.check_box '_destroy',  {:class => 'destroy'} %>
 					<%= child_form.label '_destroy', 'Remove' %>
 				</div>
+				<h2>Session Information</h2>
 				<% child_form.fields_for :session_child_registrations do |session_form| %>
 					<div class="sessions">
 						<div class="session">

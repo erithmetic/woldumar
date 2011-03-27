@@ -1,5 +1,4 @@
 class SessionRegistrationsController < ApplicationController
-  before_filter :authenticate_user!
   
   # GET /session_registrations
   # GET /session_registrations.xml
