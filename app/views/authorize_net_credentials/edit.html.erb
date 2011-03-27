@@ -1,6 +1,6 @@
 <h2>Edit Authorize.Net Credentials</h2>
 
-<%= form_for(@credentials, :url => url_for(:action => :update_authorize_net_credentials), :html => { :method => :put }) do |f| %>
+<%= form_for(@credential, :url => :authorize_net_credentials, :html => { :method => :put }) do |f| %>
 
   <p><%= f.label :username %><br />
   <%= f.text_field :username %></p>

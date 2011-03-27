@@ -1,9 +1,10 @@
 Woldumar::Application.routes.draw do
   devise_for :users
 
-  resources :session_registrations
-  resources :event_registrations
+  # Standard resources
+  resources :session_registrations, :event_registrations, :donations
 
+  # Nested resources
   resources :camps do 
     resources :sessions
   end
@@ -15,13 +16,18 @@ Woldumar::Application.routes.draw do
     resources :event_registrations
   end
 
-  resources :donations
-  
-  match '/admin(/:action(/:id))', :to => 'admin'
+  # Custom controller for Authorize.Net stuff
+  match '/admin/authorize_net_credentials/edit', :to => "AuthorizeNetCredentials#edit", :as => :authorize_net_credentials_edit
+  match '/admin/authorize_net_credentials', :to => "AuthorizeNetCredentials#update", :as => :authorize_net_credentials
 
-  match '/stylesheets/:package.css', :to => 'assets#index', :as => 'stylesheet', :type => :css
-  match '/javascripts/:package.js', :to => 'assets#index', :as => 'javascript', :type => :js
+  # Admin interface (mostly for User model)
+  match '/admin(/:action(/:id))', :to => 'Admin'
 
-  match '/:id(.format)', :to => 'pages#show', :as => :page, :constraints => { :id => /.+/ }
-  root :to => 'pages#show', :id => 'home'
+  # Assets controller
+  match '/stylesheets/:package.css', :to => 'Assets#index', :as => 'stylesheet', :type => :css
+  match '/javascripts/:package.js', :to => 'Assets#index', :as => 'javascript', :type => :js
+
+  # Pages (rest of site)
+  match '/:id(.format)', :to => 'Pages#show', :as => :page, :constraints => { :id => /.+/ }
+  root :to => 'Pages#show', :id => 'home'
 end
