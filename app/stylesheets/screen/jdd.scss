@@ -1,42 +1,64 @@
-ul.site_nav
-{	margin: 0;
-	padding: 0}
+ul.site_nav {
+  margin: 0;
+	padding: 0;
+	background-image: url(../images/top_bar.png);
+	background-repeat: no-repeat;
+}
 
-	ul.site_nav li {
-    float: left;
-		list-style: none;
-		font: 12px;
-    display: block;
-  }
+ul.site_nav li {
+  padding: 10px 0 0 0;
+  float: left;
+  list-style: none;
+  font-size: 18px;
+  display: block;
+  height: 41px;
+  text-align: center;
+  width: 148px;
+  border-right: 1px solid #CADA00;
+}
 
-	ul.site_nav li a
-	{	display: block;
-		background: #20548E;
-		padding: 5px 12px;
-		text-decoration: none;
-		border-right: 1px solid white;
-		width: 70px;
-		color: #EAFFED;
-		white-space: nowrap}
+ul.site_nav li.home { width: 130px; }
+ul.site_nav li.home ul { width: 130px; }
+ul.site_nav li.activities { width: 168px; }
+ul.site_nav li.activities ul { width: 168px; }
 
-	ul.site_nav li a:hover
-	{	background: #1A4473}
+ul.site_nav li.last {
+  border-right: none;
+}
 
-		ul.site_nav li ul
-		{	margin: 0;
-			padding: 0;
-			position: absolute;
-			visibility: hidden;
-			border-top: 1px solid white}
+ul.site_nav li a {
+  display: block;
+  text-decoration: none;
+  color: white;
+  white-space: nowrap;
+}
 
-		ul.site_nav li ul li
-		{	float: none;
-			display: inline}
+ul.site_nav li a:hover { text-decoration: underline; }
 
-		ul.site_nav li ul li a
-		{	width: auto;
-			background: #9F1B1B}
+ul.site_nav li ul {
+  margin: 23px 0 0 0;
+  padding: 0;
+  position: absolute;
+  visibility: hidden;
+  background: #97A700;
+  width: 148px;
+}
 
-		ul.site_nav li ul li a:hover
-		{	background: #7F1616}
+ul.site_nav li ul li {
+  float: none;
+  display: inline;
+  margin: 0;
+  padding: 0;
+  background: #97A700;
+  height: 55px;
+  border: 0;
+}
+
+ul.site_nav li ul li a {
+  width: 100%;
+  height: 25px;
+  padding: 10px 0;
+}
+
+ul.site_nav li ul li a:hover {	background: #7A8D00; }
 

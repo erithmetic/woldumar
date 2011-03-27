@@ -99,19 +99,30 @@ module ApplicationHelper
 
   def nav_bar
     output = "<ul class=\"site_nav\">\n"
+    counter = 1
     navs.each do |top_name, top_path|
       if top_path.is_a? Hash
-        output += "<li>\n" 
+        if counter == navs.length
+          output += "<li class=\"#{top_name.underscore} last\">\n" 
+        else
+          output += "<li class=\"#{top_name.underscore}\">\n" 
+        end
         output += link_to(top_name, top_path.keys.first) + "\n"
-        output += "<ul>\n"
+        output += "<ul class=\"#{top_name.underscore}\">\n"
         top_path[top_path.keys.first].each do |nav_item|
           output += "<li>" + link_to(nav_item.name, nav_item.path) + "</li>\n"
         end
         output += "</ul>\n"
         output += "</li>\n"
       else
-        output += "<li>" + link_to(top_name, top_path) + "</li>\n"
+        if counter == navs.length
+          output += "<li class=\"#{top_name.underscore} last\">\n" 
+        else
+          output += "<li class=\"#{top_name.underscore}\">\n" 
+        end
+        output += link_to(top_name, top_path) + "</li>\n".html_safe
       end
+      counter += 1
     end
     output += "</ul>"
     output.html_safe
