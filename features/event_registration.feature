@@ -14,8 +14,14 @@ Feature: Event registration
     And I fill in "city" with "Lansing"
     And I select "Michigan" from "user_state"
     And I fill in "postal_code" with "48915"
+    And I fill in "event_ticket_0_quantity" with "2"
+    And I fill in "event_ticket_0_quantity" with "1"
+    And I fill in "event_ticket_0_quantity" with "3"
     And I press "Register"
     Then I should see "You are registered"
+    And I should see "2 x Adult"
+    And I should see "1 x Student"
+    And I should see "3 x Children under 12"
 
   Scenario: Successful registration with credit card
     Given a "owl prowl" event exists
@@ -34,6 +40,7 @@ Feature: Event registration
     And I select "July" from "credit_card_expiration_month"
     And I select "2013" from "credit_card_expiration_year"
     And I fill in "credit_card_ccv" with "123"
+    And I fill in "event_ticket_0_quantity" with "1"
     And I press "Register"
     Then I should see "You are registered"
 

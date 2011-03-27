@@ -3,11 +3,15 @@ require 'transaction'
 class EventRegistration < ActiveRecord::Base
   belongs_to :event
   belongs_to :user
+  has_many :event_tickets, :through => :event_registrations_tickets
 
   attr_accessor :credit_card
 
   def credit_card
     @credit_card ||= {}
+  end
+
+  def total
   end
 
   def transaction
