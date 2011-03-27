@@ -1,41 +1,42 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-  <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Woldumar Nature Center</title>
-    <%= cached_stylesheet_tag 'screen', :media => 'screen, projection' %>
-    <%= cached_stylesheet_tag 'print', :media => 'print' %>
-    <!--[if lt IE 9]>
-      <%= cached_stylesheet_tag 'ie', :media => 'screen, projection' %>
-    <![endif]-->
-    <%= cached_javascript_tag 'woldumar' %>
-    <%= csrf_meta_tag %>
-  </head>
-  <body>
-    <div id="wrapper">
-      <div id="top_section">
-        <div id="top_nav"><%= nav_bar %></div> <!-- Closed Top_Nav -->
-        <div id="logo"><img src="/images/Woldumar_Nature_Center.png" width="398" height="108" alt="Woldumar Nature Center Lansing Michigan"  title="Woldumar Nature Center - Lansing Michigan"/></div><!-- Closed Logo -->
-        <div id="phone_number"><h2>517-322-0030</h2></div><!-- Closed Phone -->
-        <div id="address">5739 Old Lansing Rd - Lansing, MI 48917</div>
-        <div id="search"></div>
-        <div id="search_nav"><img src="/images/search_button.gif" width="72" height="26" alt="Woldumar Nature Center Search" /></div>
-      </div> 
-      <!-- Closed Top Section -->
-      <div id="whole_page">
-        <div id="main_content"><div id="left_col">
-          <%= yield %>
-        </div>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>Woldumar Nature Center</title>
+  <%= cached_stylesheet_tag 'screen', :media => 'screen, projection' %>
+  <%= cached_stylesheet_tag 'print', :media => 'print' %>
+  <!--[if lt IE 9]>
+    <%= cached_stylesheet_tag 'ie', :media => 'screen, projection' %>
+  <![endif]-->
+  <%= cached_javascript_tag 'woldumar' %>
+  <%= javascript_include_tag 'http://connect.facebook.net/en_US/all.js#xfbml=1' %>
+  <%= csrf_meta_tag %>
+</head>
+<body>
+  <div id="wrapper">
+    <div id="top_nav"><%= nav_bar %></div>
+    <div id="top_section">
+      <div id="logo"><img src="/images/Woldumar_Nature_Center.png" alt="Woldumar Nature Center Logo" /></div>
+      <div id="contact">
+        <h3>(517) 322-0030</h3>
+
+        <p>5739 Old Lansing Rd.</p>
+        <p>Lansing, MI 48917</p>
       </div>
-      <!-- Footer -->
-          <div id="bottom_divider"></div>
-          <div id="below_footer">
-            <div class="bottom_text">Copyright ©  2011. Woldumar Nature Center &middot; 5739 Old Lansing Rd  &middot; Lansing, MI &middot; Phone: (517) 322-0030  &middot; Fax: (517) 322-9394</div>
-            </div>
-          <div class="green">
-        </div>
-      </div>
+    </div> <!-- top_section -->
+
+    <div id="content">
+      <%= yield %>
     </div>
-  </div><!-- Wrapper -->
+
+    <div id="bottom_divider"></div>
+
+    <div id="footer_text">
+      <p>Copyright &copy;2011, Woldumar Nature Center</p>
+      <p>5739 Old Lansing Rd &middot; Lansing, MI &middot; Phone: (517) 322-0030 &middot; Fax: (517) 322-9394</p>
+    </div>
+
+    <div id="footer_block">&nbsp;</div>
+  </div> <!-- Wrapper -->
 </body>
 </html>

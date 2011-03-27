@@ -4,7 +4,7 @@ class AssetsController < ApplicationController
     package = params[:package].to_sym
     
     css_packages = {
-      :screen => ['reset', 'layout', 'typography', 'nivo-slider', 'jdd'],
+      :screen => ['reset', 'layout', 'typography', 'home', 'nivo-slider', 'jdd'],
       :print => [],
       :ie => []
     }

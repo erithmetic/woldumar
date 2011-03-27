@@ -104,4 +104,43 @@ print 'Creating events...'
   print '.'
 end
 puts
+
+print 'Creating camps...'
+[
+  {
+    :name => 'Neato Sweeto Camp',
+    :min_age => 8,
+    :max_age => 12,
+    :details => 'COOL!',
+    :start_time => 'April 1 2011 5:00PM',
+    :end_time => 'April 2 2011 2:00PM',
+    :fee => '$20',
+    :discount => '$5'
+  },
+  {
+    :name => 'Teen Camp',
+    :min_age => 14,
+    :max_age => 16,
+    :details => 'COOL!',
+    :start_time => 'April 3 2011 5:00PM',
+    :end_time => 'April 4 2011 2:00PM',
+    :fee => '$45.25',
+    :discount => '$5'
+  },
+  {
+    :name => 'Little Kids Camp',
+    :min_age => 4,
+    :max_age => 6,
+    :details => 'COOL!',
+    :start_time => 'April 5 2011 5:00PM',
+    :end_time => 'April 6 2011 2:00PM',
+    :fee => '$35.50',
+    :discount => '$5'
+  }
+].each do |camp|
+  Camp.create camp
+  print '.'
+end
+print " done.\n"
+
 puts 'Great success, is nice!'

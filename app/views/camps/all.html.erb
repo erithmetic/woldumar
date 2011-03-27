@@ -1,0 +1,22 @@
+<div class="index">
+  <h1>Summer Camps</h1>
+  <table>
+    <tr id="headers">
+      <th>Name</th>
+      <th>Age Range</th>
+      <th>Starting Time</th>
+      <th>Ending Time</th>
+      <th>Fee</th>
+    </tr>
+
+  <% @camps.each do |camp| %>
+    <tr>
+      <td><%= link_to camp.name, one_camp_path(camp) %></td>
+      <td><%= camp.min_age %> &mdash; <%= camp.max_age %></td>
+      <td><%= camp.formatted_start_time %></td>
+      <td><%= camp.formatted_end_time %></td>
+      <td>$<%= camp.fee %></td>
+    </tr>
+  <% end %>
+  </table>
+</div>

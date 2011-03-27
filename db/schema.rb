@@ -26,8 +26,8 @@ ActiveRecord::Schema.define(:version => 20110327033000) do
     t.datetime "start_time"
     t.datetime "end_time"
     t.text     "details"
-    t.decimal  "fee"
-    t.decimal  "discount"
+    t.decimal  "fee",        :default => 0.01
+    t.decimal  "discount",   :default => 0.0
     t.datetime "created_at"
     t.datetime "updated_at"
   end

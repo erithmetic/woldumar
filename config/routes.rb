@@ -5,9 +5,15 @@ Woldumar::Application.routes.draw do
   # Standard resources
   resources :session_registrations, :event_registrations, :donations
 
+  # User-facing camps controller routes
+  match '/activities/summer_camps', :to => "Camps#all", :as => :all_camps
+  match '/activities/summer_camps/:id', :to => "Camps#one", :as => :one_camp
+
   # Nested resources
-  resources :camps do 
-    resources :sessions
+  scope '/admin' do
+    resources :camps do 
+      resources :sessions
+    end
   end
 
   resources :events do

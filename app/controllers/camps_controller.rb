@@ -1,12 +1,26 @@
 class CampsController < ApplicationController
-  before_filter :require_admin, :except => [:index, :show]
-  
+  before_filter :require_admin, :except => ['all', 'one']
+ 
   # GET /camps
-  def index
+  def all
     @camps = Camp.all
   end
 
   # GET /camps/1
+  def one
+    begin
+      @camp = Camp.find params[:id]
+    rescue ActiveRecord::RecordNotFound
+      redirect_to all_camps_url
+    end
+  end
+
+  # GET /admin/camps
+  def index
+    @camps = Camp.all
+  end
+
+  # GET /admin/camps/1
   def show
     begin
       @camp = Camp.find params[:id]
@@ -15,12 +29,12 @@ class CampsController < ApplicationController
     end
   end
 
-  # GET /camps/new
+  # GET /admin/camps/new
   def new
     @camp = Camp.new
   end
 
-  # GET /camps/1/edit
+  # GET /admin/camps/1/edit
   def edit
     begin
       @camp = Camp.find params[:id]
@@ -40,7 +54,7 @@ class CampsController < ApplicationController
     end
   end
 
-  # PUT /camps/1
+  # PUT /admin/camps/1
   def update
     begin
       @camp = Camp.find params[:id]
@@ -55,7 +69,7 @@ class CampsController < ApplicationController
     end
   end
 
-  # DELETE /camps/1
+  # DELETE /admin/camps/1
   def destroy
     begin
       @camp = Camp.find params[:id]
