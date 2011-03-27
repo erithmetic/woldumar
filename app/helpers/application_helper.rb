@@ -58,7 +58,6 @@ module ApplicationHelper
         page_path('about_us') => [
           NavItem.new('History', page_path('about_us/history')),
           NavItem.new('Nature Areas', page_path('about_us/nature_areas')),
-          NavItem.new('News', page_path('about_us/news')),
           NavItem.new('Staff & Board', page_path('about_us/staff_and_board')),
           NavItem.new('Employment', page_path('about_us/employment'))
         ]

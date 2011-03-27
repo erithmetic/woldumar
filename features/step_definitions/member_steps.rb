@@ -1,5 +1,5 @@
-Given /a member with email "(.*)" and password "(.*)" exists/ do |email, password, privileges|
-  User.create :email => email, :password => password, :password_confirmation => password
+Given /a member with email "(.*)" and password "(.*)" exists/ do |email, password|
+  User.create! :first_name => 'Bob', :last_name => 'Sagett', :email => email, :password => password, :password_confirmation => password
 end
 
 Given /I am logged in as "([^"]*)" with email "([^"]*)"(?: having (admin|member|all) privileges)?/ do |name, email, privileges|
