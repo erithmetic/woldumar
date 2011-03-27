@@ -1,30 +1,49 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Woldumar</title>
-    <%= cached_stylesheet_tag 'screen', :media => 'screen, projection' %>
-    <%= cached_stylesheet_tag 'print', :media => 'print' %>
-    
-    <!--[if lt IE 9]>
-      <%= cached_stylesheet_tag 'ie', :media => 'screen, projection' %>
-    <![endif]-->
-
-    <%= javascript_include_tag :defaults, :cache => 'cache/woldumar' %>
-    
-    <%= csrf_meta_tag %>
-
-  </head>
-  <body>
-    <div class="two-col">
-      <div id="header" class="span-24 last">
-        <%= nav_bar %>
+<div id="main_photo"></div><!-- Closed Main Photo -->
+<div id="brown_bar">
+  <div class="sec1"><div class="right_side"><div class="sec_title1">Section Title</div><!-- Closed Sec Title 1-->
+    <div class="sec_text">text text text<br />
+    </div> <!-- Closed Sec Text --><div class="dot"></div><!-- Read Dot--><div class="read_more"><h5>Read More</h5></div><!-- Read More --></div>
+    <div class="photo"></div>
+    </div><!-- Closed Photo --><div class="sec1"><div class="right_side"><div class="sec_title1">Section Title</div><!-- Closed Sec Title 1-->
+    <div class="sec_text">text text text<br />
+    </div> <!-- Closed Sec Text --><div class="dot"></div><!-- Read Dot--><div class="read_more"><h5>Read More</h5></div><!-- Read More --></div>
+    <div class="photo"></div></div><!-- Closed Photo --><div class="sec1"><div class="right_side"><div class="sec_title1">Section Title</div><!-- Closed Sec Title 1-->
+    <div class="sec_text">text text text<br />
+    </div> <!-- Closed Sec Text --><div class="dot"></div><!-- Read Dot--><div class="read_more"><h5>Read More</h5></div><!-- Read More --></div>
+    <div class="photo"></div>
+    </div><!-- Closed Photo -->
+  </div><!-- Closed Sec 1 -->
+  <div id="whole_page">
+    <div id="main_content"><div id="left_col">
+      <div class="main_title"><h1>Welcome</h1></div>
+        <div id="to_woldumar"><h2>to Woldumar Nature Center</h2></div>
+          <div id="main_text">Each year, Woldumar Nature Center - a private, non-profit environmental education organization  - attracts some 40,000 visitors from across mid-Michigan. <br />
+            <br />
+            Situated along the Grand River with 1.25 miles of shoreline, Woldumar represents one of the most diverse ecosystems   in the region. More than 5 miles of trails await you on 178 acres of woodland, prairie, river-side and pine forest!   Hike or ski anytime between dawn and dusk. <a href="http://www.woldumar.org/pdfs/trailmap.pdf" target="_blank"><strong>View Trail Map</strong></a> <br />
+            <br />
+            We offer numerous outreach and on-site Environmental Education programs   for children as well as adults. The Visitors Center is a great place to start with interpretive and live creature displays!
+          </div>
+          <!-- main text --></div><!-- Heading Containerr -->
+          <div id="right_col">
+            <div class="right_box">
+              <div class="top_side_right">
+                <div class="top_title">Hours Of Operation</div>
+              </div>
+              <div class="right_middle">
+                <div class="right_mid_con">Text</div>
+            </div>
+            <div class="right_bottom"></div>
+          </div>
+          <div class="right_box">
+            <div class="top_side_right2">
+              <div class="top_title">Events</div>
+            </div>
+            <div class="right_middle">
+              <div class="right_mid_con">Text</div>
+            </div>
+            <div class="right_bottom"></div>
+          </div>
+        </div>
       </div>
-      <div id="content" class="span-24 last">
-        <%= yield %>
-      </div>
-      <div id="footer" class="span-24 last">
-        Footer
-      </div>
-    </div>
-  </body>
-</html>
+      <!-- Left Col -->
+        </div>
