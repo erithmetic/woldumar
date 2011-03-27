@@ -50,9 +50,10 @@ body {
 }
 #bottom_divider {
   width: 900;
-  margin 0 40px;
+  margin: 10px 40px 0 40px;
   height: 5px;
   background: #603A18;
+  clear: both;
 }
 
 #below_footer {
@@ -267,6 +268,7 @@ body {
 #left_col {
 	float: left;
 	width: 650px;
+  margin-bottom: 10px;
 }
 #left_col2 {
 	float: left;

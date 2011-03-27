@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Woldumar Nature Centert</title>
+    <title>Woldumar Nature Center</title>
     <%= cached_stylesheet_tag 'screen', :media => 'screen, projection' %>
     <%= cached_stylesheet_tag 'print', :media => 'print' %>
     <!--[if lt IE 9]>
@@ -23,11 +23,13 @@
         <div id="search_nav"><img src="/images/search_button.gif" width="72" height="26" alt="Woldumar Nature Center Search" /></div>
       </div> 
       <!-- Closed Top Section -->
-      <%= yield %>
+      <div id="whole_page">
+        <div id="main_content"><div id="left_col">
+          <%= yield %>
+        </div>
+      </div>
       <!-- Footer -->
-
-      <div id="bottom_divider"></div>
-
+          <div id="bottom_divider"></div>
           <div id="below_footer">
             <div class="bottom_text">Copyright ©  2011. Woldumar Nature Center &middot; 5739 Old Lansing Rd  &middot; Lansing, MI &middot; Phone: (517) 322-0030  &middot; Fax: (517) 322-9394</div>
             </div>
