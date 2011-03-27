@@ -48,7 +48,7 @@
 						<div class="session">
 							<div class="field">
 								<%= session_form.label :session %>
-								<%= session_form.select :session_id, @sessions.map{|s| [s.name, s.id]}, {:prompt => "Select Session"}, {:class => 'session'} %>
+								<%= session_form.select :session_id, @sessions.map{|s| ["#{s.name} - $#{s.camp.fee}", s.id]}, {:prompt => "Select Session"}, {:class => 'session'} %>
 							</div>
 			
 							<div class="field">
@@ -79,7 +79,7 @@
 		</div>
 	</div>
 	<input id="add_child" type="button" value="Add Child" />
-
+	<%= render :partial => 'shared/payment' %>
   <div class="actions">
     <%= reg_form.submit %>
   </div>
