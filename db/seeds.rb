@@ -15,13 +15,24 @@ admins.each do |email_frozen, name|
                  :password => 'secret',
                  :password_confirmation => 'secret',
                  :first_name => fname,
-                 :last_name => lname,
-                 :is_admin => true)
+                 :last_name => lname)
     print "success!\n"
   else
     print "fail :*(\n"
   end
 end
+
+print "Admin-ifying admins..."
+admins.each_key do |email|
+  user = User.find_by_email email
+  if user
+    user.is_admin = true
+    if user.save
+      print '.'
+    end
+  end
+end
+print " done!\n"
 
 print "Initializing Authorize.Net credentials... "
 if AuthorizeNetCredential.create :username => 'authorizenetuser', :password => '123456789'
