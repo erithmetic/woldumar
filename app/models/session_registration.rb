@@ -11,7 +11,7 @@ class SessionRegistration < ActiveRecord::Base
   
   accepts_nested_attributes_for :children
   
-  before_validate :calculate_total
+  before_save :calculate_total
   
   def calculate_total
     cost = BigDecimal('0.00')
