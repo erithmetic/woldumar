@@ -3,7 +3,7 @@ class CreateEventTickets < ActiveRecord::Migration
     create_table :event_tickets do |t|
       t.integer :event_id
       t.string :name
-      t.money :price
+      t.decimal :price, :precision => 10, :scale => 2, :default => 0.0
 
       t.timestamps
     end

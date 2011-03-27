@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110327150635) do
+ActiveRecord::Schema.define(:version => 20110327175920) do
 
   create_table "authorize_net_credentials", :force => true do |t|
     t.string   "username"
@@ -52,10 +52,25 @@ ActiveRecord::Schema.define(:version => 20110327150635) do
     t.integer  "user_id"
   end
 
+  create_table "event_registration_event_tickets", :force => true do |t|
+    t.integer  "event_registration_id"
+    t.integer  "event_ticket_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "event_registrations", :force => true do |t|
     t.integer  "event_id"
     t.integer  "user_id"
     t.integer  "cc_auth"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "event_tickets", :force => true do |t|
+    t.integer  "event_id"
+    t.string   "name"
+    t.decimal  "price",      :precision => 10, :scale => 2, :default => 0.0
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -110,6 +125,8 @@ ActiveRecord::Schema.define(:version => 20110327150635) do
     t.string   "product_image_content_type"
     t.integer  "product_image_file_size"
     t.datetime "product_image_updated_at"
+    t.string   "category"
+    t.string   "option"
   end
 
   create_table "session_child_registrations", :force => true do |t|
