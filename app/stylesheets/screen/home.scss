@@ -29,9 +29,20 @@ $radius: 2ex;
 	width: 70%;
 }
 
+#left-directions-col {
+	float: left;
+	width: 60%;
+    padding-right:20px;
+}
+
 #right-col {
   float: left;
 	width: 28%;
+}
+
+#right-directions-col {
+    float: left;
+	width: 30%;
 }
 
 .box {
