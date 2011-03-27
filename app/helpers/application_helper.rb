@@ -2,7 +2,7 @@ require 'nav_item'
 
 module ApplicationHelper
   def most_recent_date_in_folder(folder)
-    Dir.glob(folder).map {|file| File.mtime(file).to_i}.max
+    Dir.glob(folder + '/*').map {|file| File.mtime(file).to_i}.max
   end
 
   def cached_stylesheet_tag(package, options = {})
