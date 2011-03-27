@@ -37,11 +37,6 @@ Feature: Normal Site Navigation
       When I follow "Nature Areas"
       Then I should see "Home"
 
-  Scenario: Navigating to the News page
-    Given I am on the home page
-      When I follow "News"
-      Then I should see "Home"
-
   Scenario: Navigating to the Staff & Board page
     Given I am on the home page
       When I follow "Staff & Board"
