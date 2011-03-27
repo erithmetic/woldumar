@@ -1,4 +1,5 @@
 Woldumar::Application.routes.draw do
+  # Authentication
   devise_for :users
 
   # Standard resources
