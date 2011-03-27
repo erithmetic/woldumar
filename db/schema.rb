@@ -10,7 +10,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110326191320) do
+ActiveRecord::Schema.define(:version => 20110326231103) do
+
+  create_table "authorize_net_credentials", :force => true do |t|
+    t.string   "username"
+    t.string   "password"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "camps", :force => true do |t|
     t.string   "name"
@@ -21,6 +28,16 @@ ActiveRecord::Schema.define(:version => 20110326191320) do
     t.text     "details"
     t.decimal  "fee"
     t.decimal  "discount"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "children", :force => true do |t|
+    t.string   "first_name"
+    t.string   "last_name"
+    t.date     "birthdate"
+    t.integer  "age"
+    t.boolean  "male"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -63,14 +80,23 @@ ActiveRecord::Schema.define(:version => 20110326191320) do
     t.datetime "flier_updated_at"
   end
 
-  create_table "occurrences", :force => true do |t|
-    t.datetime "start"
-    t.datetime "end"
-    t.decimal  "price"
-    t.text     "details"
+  create_table "session_child_registrations", :force => true do |t|
+    t.integer  "session_id"
+    t.integer  "child_id"
+    t.decimal  "extended_care_cost"
+    t.boolean  "photo"
+    t.boolean  "early_discount"
+    t.decimal  "total_fees"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "event_id"
+  end
+
+  create_table "session_registrations", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "cc_auth"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.decimal  "total_cost"
   end
 
   create_table "sessions", :force => true do |t|

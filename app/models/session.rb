@@ -1,6 +1,8 @@
 require 'chronic'
 class Session < ActiveRecord::Base
   belongs_to :camp
+  has_many :session_child_registrations
+  has_many :children, :through => :session_child_registrations
   
   before_save :parse_times
   

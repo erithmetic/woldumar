@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>User:</b>
+  <%= @session_registration.user_id %>
+</p>
+
+<p>
+  <b>Cc auth:</b>
+  <%= @session_registration.cc_auth %>
+</p>
+
+
+<%= link_to 'Edit', edit_session_registration_path(@session_registration) %> |
+<%= link_to 'Back', session_registrations_path %>
