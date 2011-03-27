@@ -1,8 +1,10 @@
+require 'chronic'
+
 Given /a member with email "(.*)" and password "(.*)" exists/ do |email, password|
   User.create! :first_name => 'Bob', :last_name => 'Sagett', :email => email, :password => password, :password_confirmation => password
 end
 
-Given /I am logged in as "([^"]*)" with email "([^"]*)"(?: having (admin|member|all) privileges)?/ do |name, email, privileges|
+Given /I am logged in as "([^"]*)" with email "([^"]*)"(?: having (admin|member|both) privileges)?/ do |name, email, privileges|
   @privileges = (privileges.nil?) ? "" : privileges.downcase
   @admin, @member = (@privileges == "both" || privileges.nil?) ?
           [!privileges.nil?, !privileges.nil?] : [@privileges == "admin", @privileges == "member"]
@@ -28,11 +30,25 @@ When /there exists a user "([^"]*)" with email "([^"]*)"$/ do |name, email|
            :password_confirmation => "testtest").save!
 end
 
-When /(?:|I )?want to change the "([^"]*)" for "([^"]*)" to "([^"]*)"$/ do |field, email, new_value|
+When /there exists an event "([^"]*)" starting on "([^"]*)"(?: and ending on "([^"]*)")?$/ do |name, start_date, end_date|
+  Event.new(:name => name, :start_date => Chronic.parse(start_date), :end_date => Chronic.parse(end_date)).save!
+end
+
+When /(?:|I )?want to change the "([^"]*)" for user "([^"]*)" to "([^"]*)"$/ do |field, email, new_value|
   @user = User.find_by_email(email)
   @field = field.split(/\s+/).unshift("user").join("_")
 
   And %{I follow "edit#{@user.id}"}
+  And %{I fill in "#{@field}" with "#{new_value}"}
+end
+
+When /(?:|I )?want to change the "([^"]*)" for event "([^"]*)" to "([^"]*)"$/ do |field, name, new_value|
+  @event = Event.find_by_name(name)
+  @field = field.split(/\s+/).unshift("event").join("_")
+
+  assert !@event.nil?
+
+  And %{I follow "edit#{@event.id}"}
   And %{I fill in "#{@field}" with "#{new_value}"}
 end
 

@@ -37,7 +37,8 @@ print " done!\n"
 puts
 
 print "Initializing Authorize.Net credentials... "
-if AuthorizeNetCredential.create :username => 'authorizenetuser', :password => '123456789'
+if AuthorizeNetCredential.create :username => (ENV['AUTHORIZE_NET_USERNAME'] || 'authorizenetuser'),
+  :password => (ENV['AUTHORIZE_NET_PASSWORD'] || '123456789')
   print "done!\n"
 else
   print "fail!\n"

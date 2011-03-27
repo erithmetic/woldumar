@@ -1,11 +1,14 @@
 <%= form_for(@donation) do |f| %>
-  <% if @donation.errors.any? %>
+  <% if @donation.errors.any? || @donation.transaction.message %>
     <div id="error_explanation">
-      <h2><%= pluralize(@donation.errors.count, "error") %> prohibited this donation from being saved:</h2>
+      <h2><%= pluralize(@donation.errors.count + (@donation.transaction.message ? 1 : 0), "error") %> prohibited this donation from being saved:</h2>
 
       <ul>
       <% @donation.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
+      <% end %>
+      <% if @donation.transaction.message %>
+        <li><%= @donation.transaction.message %>
       <% end %>
       </ul>
     </div>
@@ -15,46 +18,22 @@
     <%= f.label :in_memory_of %><br />
     <%= f.text_field :in_memory_of %>
   </div>
-  <div class="field">
-    <%= f.label :first_name, "Donor's first name" %><br />
-    <%= f.text_field :first_name %>
-  </div>
-  <div class="field">
-    <%= f.label :last_name, "Donor's last name" %><br />
-    <%= f.text_field :last_name %>
-  </div>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.text_field :email %>
-  </div>
-  <div class="field">
-    <%= f.label :address %><br />
-    <%= f.text_field :address %>
-  </div>
-  <div class="field">
-    <%= f.label :city %><br />
-    <%= f.text_field :city %>
-  </div>
-  <div class="field">
-    <%= f.label :state %><br />
-    <%= f.text_field :state %>
-  </div>
-  <div class="field required">
-    <%= f.label :zip %><br />
-    <%= f.text_field :zip %>
-  </div>
-  <div class="field">
-    <%= f.label :phone, 'Phone number' %><br />
-    <%= f.text_field :phone %>
-  </div>
+
+  <% if current_user %>
+    <%= render :partial => 'shared/display_user_info', :locals => { :user => current_user } %>
+  <% else %>
+    If you are a member or you've registered with us before, you can 
+    <%= link_to 'log in', new_user_session_path %> using your email.
+    <%= render :partial => 'shared/user_info', :locals => { :user => @user } %>
+  <% end %>
+  <%= render :partial => 'shared/payment' %>
+
   <div class="field required">
     <%= f.label :amount, 'Donation amount' %><br />
     <%= f.text_field :amount %>
   </div>
 
-  <%= render :partial => 'shared/payment' %>
-
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit 'Donate' %>
   </div>
 <% end %>

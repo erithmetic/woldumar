@@ -1,4 +1,6 @@
 class DonationsController < ApplicationController
+  before_filter :require_admin, :except => [:new, :create]
+
   # GET /donations
   # GET /donations.xml
   def index
@@ -26,6 +28,13 @@ class DonationsController < ApplicationController
   def new
     @donation = Donation.new
 
+    if current_user
+      @user = current_user
+    else
+      @user = User.new
+      store_location
+    end
+
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @donation }
@@ -40,16 +49,24 @@ class DonationsController < ApplicationController
   # POST /donations
   # POST /donations.xml
   def create
-    @donation = Donation.new(params[:donation])
-    transaction = Transaction.new params.merge(
-      :first_name => params[:donation][:first_name], 
-      :last_name => params[:donation][:last_name],
-      :amount => params[:donation][:amount])
+    success = true
+    if current_user
+      @user = current_user
+    else
+      password = params[:user][:email] ? User.generate_password(params[:user][:email])[0..19] : ''
+      @user = User.new params[:user].merge(:password => password, :password_confirmation => password) 
+      success = @user.save
+    end
 
+    @donation = Donation.new(params[:donation].merge(
+      :user => @user, :credit_card => params[:credit_card]))
+    success &= @donation.save
+
+    clear_stored_location
 
     respond_to do |format|
-      if @donation.save && transaction.post
-        format.html { redirect_to(@donation, :notice => 'Donation was successfully created.') }
+      if success
+        format.html { redirect_to(page_path('get_involved'), :notice => 'Thank you for your donation') }
         format.xml  { render :xml => @donation, :status => :created, :location => @donation }
       else
         format.html { render :action => "new" }
