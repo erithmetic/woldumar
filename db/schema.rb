@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110327011850) do
+ActiveRecord::Schema.define(:version => 20110327033000) do
 
   create_table "authorize_net_credentials", :force => true do |t|
     t.string   "username"
@@ -26,8 +26,8 @@ ActiveRecord::Schema.define(:version => 20110327011850) do
     t.datetime "start_time"
     t.datetime "end_time"
     t.text     "details"
-    t.decimal  "fee"
-    t.decimal  "discount"
+    t.decimal  "fee",        :default => 0.01
+    t.decimal  "discount",   :default => 0.0
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -79,6 +79,34 @@ ActiveRecord::Schema.define(:version => 20110327011850) do
     t.string   "flier_content_type"
     t.integer  "flier_file_size"
     t.datetime "flier_updated_at"
+  end
+
+  create_table "orders", :force => true do |t|
+    t.integer  "cc_auth"
+    t.datetime "date"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "product_orders", :force => true do |t|
+    t.integer  "quantity"
+    t.integer  "order_id"
+    t.integer  "product_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "products", :force => true do |t|
+    t.string   "name"
+    t.decimal  "price"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "product_image_file_name"
+    t.string   "product_image_content_type"
+    t.integer  "product_image_file_size"
+    t.datetime "product_image_updated_at"
   end
 
   create_table "session_child_registrations", :force => true do |t|
