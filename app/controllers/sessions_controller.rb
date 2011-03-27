@@ -46,6 +46,9 @@ class SessionsController < ApplicationController
   def create
     @session = @camp.sessions.new(params[:session])
 
+    @session.start_date = Chronic.parse(params[:session][:start_date]) if params[:session][:start_date]
+    @session.end_date = Chronic.parse(params[:session][:end_date]) if params[:session][:end_date]
+
     respond_to do |format|
       if @session.save
         format.html { redirect_to([@camp, @session], :notice => 'Session was successfully created.') }
@@ -61,6 +64,9 @@ class SessionsController < ApplicationController
   # PUT /sessions/1.xml
   def update
     @session = @camp.sessions.find(params[:id])
+
+    params[:session][:start_date] = Chronic.parse(params[:session][:start_date]) if params[:session][:start_date]
+    params[:session][:end_date] = Chronic.parse(params[:session][:end_date]) if params[:session][:end_date]
 
     respond_to do |format|
       if @session.update_attributes(params[:session])

@@ -1,3 +1,5 @@
+require 'chronic'
+
 class EventsController < ApplicationController
   before_filter :require_admin, :except => [:index, :show, :upcoming]
 
@@ -53,6 +55,9 @@ class EventsController < ApplicationController
   def create
     @event = Event.new(params[:event])
 
+    @event.start_date = Chronic.parse(params[:event][:start_date]) if params[:event][:start_date]
+    @event.end_date = Chronic.parse(params[:event][:end_date]) if params[:event][:end_date]
+
     respond_to do |format|
       if @event.save
         format.html { redirect_to(@event, :notice => 'Event was successfully created.') }
@@ -69,8 +74,12 @@ class EventsController < ApplicationController
   def update
     @event = Event.find(params[:id])
 
+    params[:event][:start_date] = Chronic.parse(params[:event][:start_date]) if params[:event][:start_date]
+    params[:event][:end_date] = Chronic.parse(params[:event][:end_date]) if params[:event][:end_date]
+
     respond_to do |format|
       if @event.update_attributes(params[:event])
+        logger.info("Start Date from Controller after assignment: #{@event.start_date}")
         format.html { redirect_to(@event, :notice => 'Event was successfully updated.') }
         format.xml  { head :ok }
       else

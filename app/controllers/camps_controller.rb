@@ -47,6 +47,10 @@ class CampsController < ApplicationController
   def create
     @camp = Camp.new params[:camp]
 
+    @camp.start_time = Chronic.parse(params[:camp][:start_time]) if params[:camp][:start_time]
+    @camp.end_time = Chronic.parse(params[:camp][:end_time]) if params[:camp][:end_time]
+
+
     if @camp.save
       redirect_to @camp, :notice => 'Camp was successfully created.'
     else
@@ -61,7 +65,10 @@ class CampsController < ApplicationController
     rescue ActiveRecord::RecordNotFound
       redirect_to camps_url
     end
-    
+
+    params[:camp][:start_time] = Chronic.parse(params[:camp][:start_time]) if params[:camp][:start_time]
+    params[:camp][:end_time] = Chronic.parse(params[:camp][:end_time]) if params[:camp][:end_time]
+
     if @camp.update_attributes params[:camp]
       redirect_to @camp, :notice => 'Camp was successfully updated.'
     else

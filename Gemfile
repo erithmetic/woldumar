@@ -9,7 +9,7 @@ gem 'haml'
 gem 'high_voltage'
 gem 'jquery-rails'
 gem 'paperclip'
-gem 'chronic'
+gem 'aaronh-chronic'
 
 group :production do
 #  gem 'mysql'  # commented out because mysql is causing fits when mysql doesn't exist.
