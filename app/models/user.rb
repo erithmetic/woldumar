@@ -9,6 +9,7 @@ class User < ActiveRecord::Base
 
   validates_presence_of :first_name, :last_name
   has_many :session_registrations
+  has_many :donations  # hopefully!
   
   accepts_nested_attributes_for :session_registrations
 

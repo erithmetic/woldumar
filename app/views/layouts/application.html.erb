@@ -26,6 +26,7 @@
     </div> <!-- top_section -->
 
     <div id="content">
+      <% if flash[:notice] %><p class="notice"><%= flash[:notice] %></p><% end %>
       <%= yield %>
     </div>
 
