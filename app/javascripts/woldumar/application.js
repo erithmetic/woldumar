@@ -12,26 +12,47 @@ $(function() {
         // if it's a nested session element, only replace first int
         if ($t.hasClass('session')) {
           $t.attr('name', replaceCounts($t.attr('name'), count, false));
+          $t.attr('id', replaceCounts($t.attr('id'), count, false));
         } else { // otherwise global replace
           $t.attr('name', $t.attr('name').replace(count, count+1));
+          $t.attr('id', $t.attr('id').replace(count, count+1));
         }
         $t.val('');
+        $t.attr('checked', '');
       }
     });
     
-    $(".children").append($child);
+    $child.find('label').each(function() {
+      var $t = $(this);
+      $t.attr('for', replaceCounts($t.attr('for'), count, false));
+    });
+    
+    $(".children").append($child.show());
   });
   
   $('.add_session').click(function() {
     var $session = $(this).parent().find("div.session").last().clone();
     var count = parseInt($session.find('input').first().attr('name').replace(/\D/g, '')[1], 10);
+    
     $session.find("input,select").each(function() {
       var $t = $(this);
-      $t.attr('name', replaceCounts($t.attr('name'), count, true))
+      $t.attr('name', replaceCounts($t.attr('name'), count, true));
+      $t.attr('id', replaceCounts($t.attr('id'), count, true));
       $t.val('');
+      $t.attr('checked', '');
+    });
+    $session.find('label').each(function() {
+      var $t = $(this);
+      $t.attr('for', replaceCounts($t.attr('for'), count, true));
     });
     
-    $(this).parent().find('.sessions').append($session);
+    $(this).parent().find('.sessions').append($session.show());
+  });
+  
+  $(".destroy").live('click', function() {
+    if ($(this).attr('checked') === true) {
+      $(this).parent().parent().slideUp('slow');
+    }
   });
 });
 
