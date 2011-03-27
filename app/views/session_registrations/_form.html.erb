@@ -10,6 +10,45 @@
       </ul>
     </div>
   <% end %>
+
+	<% if current_user %>
+    <%= render :partial => 'shared/display_user_info', :locals => { :user => current_user } %>
+  <% else %>
+    If you are a member or you've registered with us before, you can 
+    <%= link_to 'log in', new_user_session_path %> using your email.
+    <%= render :partial => 'shared/user_info', :locals => { :user => @user } %>
+  <% end %>
+
+	<div class="field">
+		<%= reg_form.label :parent2_first_name %>
+		<%= reg_form.text_field :parent2_first_name %>
+	</div>
+	
+	<div class="field">
+		<%= reg_form.label :parent2_last_name %>
+		<%= reg_form.text_field :parent2_last_name %>
+	</div>
+	
+	<div class="field">
+		<%= reg_form.label :parent2_home_phone %>
+		<%= reg_form.text_field :parent2_home_phone %>
+	</div>
+	
+	<div class="field">
+		<%= reg_form.label :parent2_work_phone %>
+		<%= reg_form.text_field :parent2_work_phone %>
+	</div>
+	
+	<div class="field">
+		<%= reg_form.label :parent2_other_phone %>
+		<%= reg_form.text_field :parent2_other_phone %>
+	</div>
+	
+	<div class="field">
+		<%= reg_form.label :parent2_email %>
+		<%= reg_form.text_field :parent2_email %>
+	</div>
+
 	<div class="children">
 		<div class="child">
 			<% reg_form.fields_for :children do |child_form| %>

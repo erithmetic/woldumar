@@ -2,6 +2,11 @@ class SessionRegistration < ActiveRecord::Base
   belongs_to :user
   has_many :children, :dependent => :destroy
   
+  validates_presence_of :total_amount
+  validates_numericality_of :total_amount, :greater_than => 0.0
+  validates_presence_of :user
+  validates_associated :user
+  
   money_column :total_cost
   
   accepts_nested_attributes_for :children
