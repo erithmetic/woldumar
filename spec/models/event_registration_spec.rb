@@ -8,14 +8,14 @@ describe EventRegistration do
   let(:event_registration) {
     EventRegistration.new(:user => user, :event => event,
                           :credit_card => {
-                            :cc_number => '1234'})
+                            :number => '1234'})
   }
 
   describe '#transaction' do
     it 'is initialized with credit card info' do
       event_registration.transaction.first_name.should == 'foo'
       event_registration.transaction.last_name.should == 'bar'
-      event_registration.transaction.cc_number.should == '1234'
+      event_registration.transaction.number.should == '1234'
     end
   end
 
