@@ -32,11 +32,10 @@ $(function() {
     $session.find("input,select").each(function() {
       var $t = $(this);
       var name = $t.attr('name');
-      var newName = name.substring(0, name.indexOf(count, -1));
+      var newName = name.substring(0, name.lastIndexOf(count, name.length));
       newName += count+1;
-      newName += name.substring(name.indexOf(count, -1)+1);
+      newName += name.substring(name.lastIndexOf(count, name.length)+1);
       $t.attr('name', newName);
-      
       $t.val('');
     });
     
