@@ -19,6 +19,9 @@ class User < ActiveRecord::Base
   # set them singly.
   attr_protected :is_admin, :is_member
 
+  # Association with orders
+  has_many :orders
+
   def self.generate_password(email)
     Digest::SHA1.hexdigest email
   end

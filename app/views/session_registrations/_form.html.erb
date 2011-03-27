@@ -10,73 +10,75 @@
       </ul>
     </div>
   <% end %>
-
-	<div class="child">
-		<% reg_form.fields_for :children do |child_form| %>
-			<div class="field">
-				<%= child_form.label :first_name %>
-				<%= child_form.text_field :first_name %>
-			</div>
-			
-			<div class="field">
-				<%= child_form.label :first_name %>
-				<%= child_form.text_field :first_name %>
-			</div>
-			
-			<div class="field">
-				<%= child_form.label :birthdate %>
-				<%= child_form.date_select :birthdate, {:start_year => 1900, :end_year => Time.now.year} %>
-			</div>
-			
-			<div class="field">
-				<%= child_form.label :age %>
-				<%= child_form.text_field :age %>
-			</div>
-			
-			<div class="field">
-				<%= child_form.label :gender %>
-				<label>Male <%= child_form.radio_button :male, 'true' %></label>
-				<label>Female <%= child_form.radio_button :male, 'false' %></label>
-			</div>
-			
-			<div class="field">
-				<%= child_form.check_box '_destroy' %>
-				<%= child_form.label '_destroy', 'Remove' %>
-			</div>
-			
-			<% child_form.fields_for :session_child_registrations do |session_form| %>
-				<div class="sessions">
-					<div class="field">
-						<%= session_form.label :session %>
-						<%= session_form.select :session_id, @sessions.map{|s| [s.name, s.id]} %>
-					</div>
-					
-					<div class="field">
-						<%= session_form.label :photo %>
-						<%= session_form.check_box :photo %>
-					</div>
-					
-					<div class="field">
-						<%= session_form.label :early_discount %>
-						<%= session_form.check_box :early_discount %>
-					</div>
-				
-					<div class="field">
-						<%= session_form.label :extended_care_cost %>
-						<%= session_form.text_field :extended_care_cost %>
-					</div>
-				
-					<div class="field">
-						<%= session_form.check_box '_destroy' %>
-						<%= session_form.label '_destroy', 'Remove' %>
-					</div>
+	<div class="children">
+		<div class="child">
+			<% reg_form.fields_for :children do |child_form| %>
+				<div class="field">
+					<%= child_form.label :first_name %>
+					<%= child_form.text_field :first_name %>
 				</div>
-			<% end %>
-			<input type="button" value="Add Session" />
 			
-		<% end %>
+				<div class="field">
+					<%= child_form.label :first_name %>
+					<%= child_form.text_field :first_name %>
+				</div>
+			
+				<div class="field">
+					<%= child_form.label :birthdate %>
+					<%= child_form.date_select :birthdate, {:start_year => 1900, :end_year => Time.now.year} %>
+				</div>
+			
+				<div class="field">
+					<%= child_form.label :age %>
+					<%= child_form.text_field :age %>
+				</div>
+			
+				<div class="field">
+					<%= child_form.label :gender %>
+					<label>Male <%= child_form.radio_button :male, 'true' %></label>
+					<label>Female <%= child_form.radio_button :male, 'false' %></label>
+				</div>
+			
+				<div class="field">
+					<%= child_form.check_box '_destroy' %>
+					<%= child_form.label '_destroy', 'Remove' %>
+				</div>
+				<% child_form.fields_for :session_child_registrations do |session_form| %>
+					<div class="sessions">
+						<div class="session">
+							<div class="field">
+								<%= session_form.label :session %>
+								<%= session_form.select :session_id, @sessions.map{|s| [s.name, s.id]}, {:prompt => "Select Session"}, {:class => 'session'} %>
+							</div>
+				
+							<div class="field">
+								<%= session_form.label :photo %>
+								<%= session_form.check_box :photo, {:class => 'session'} %>
+							</div>
+				
+							<div class="field">
+								<%= session_form.label :early_discount %>
+								<%= session_form.check_box :early_discount, {:class => 'session'} %>
+							</div>
+			
+							<div class="field">
+								<%= session_form.label :extended_care_cost %>
+								<%= session_form.text_field :extended_care_cost, {:class => 'session'} %>
+							</div>
+			
+							<div class="field">
+								<%= session_form.check_box '_destroy' %>
+								<%= session_form.label '_destroy', 'Remove', {:class => 'session'} %>
+							</div>
+						</div>
+					</div>
+				<% end %>
+				<input class="add_session" type="button" value="Add Session" />
+		
+			<% end %>
+		</div>
 	</div>
-	<input type="button" value="Add Child" />
+	<input id="add_child" type="button" value="Add Child" />
 
   <div class="actions">
     <%= reg_form.submit %>

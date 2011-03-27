@@ -3,9 +3,11 @@
 body {
 	margin: 0px;
 	padding: 0px;
+  background-color: #d6cebe;
 	background-attachment: scroll;
 	background-image: url(../images/bg.gif);
-	background-position: bottom;
+  background-repeat: repeat-x;
+	background-position: left bottom;
 	height: 100%;
 }
 #whole_page {

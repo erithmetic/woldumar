@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110326231103) do
+ActiveRecord::Schema.define(:version => 20110327011850) do
 
   create_table "authorize_net_credentials", :force => true do |t|
     t.string   "username"
@@ -40,6 +40,7 @@ ActiveRecord::Schema.define(:version => 20110326231103) do
     t.boolean  "male"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "session_registration_id"
   end
 
   create_table "donations", :force => true do |t|
