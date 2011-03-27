@@ -21,6 +21,7 @@ admins.each do |email_frozen, name|
     print "fail :*(\n"
   end
 end
+puts
 
 print "Admin-ifying admins..."
 admins.each_key do |email|
@@ -33,6 +34,7 @@ admins.each_key do |email|
   end
 end
 print " done!\n"
+puts
 
 print "Initializing Authorize.Net credentials... "
 if AuthorizeNetCredential.create :username => 'authorizenetuser', :password => '123456789'
@@ -40,6 +42,7 @@ if AuthorizeNetCredential.create :username => 'authorizenetuser', :password => '
 else
   print "fail!\n"
 end
+puts
 
 print 'Creating events...'
 [{
@@ -103,7 +106,7 @@ print 'Creating events...'
   Event.create event
   print '.'
 end
-puts
+print " done.\n\n"
 
 print 'Creating camps...'
 [
@@ -141,6 +144,6 @@ print 'Creating camps...'
   Camp.create camp
   print '.'
 end
-print " done.\n"
+print " done.\n\n"
 
 puts 'Great success, is nice!'
