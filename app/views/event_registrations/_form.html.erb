@@ -17,8 +17,8 @@
   <% if current_user %>
     <%= render :partial => 'shared/display_user_info', :locals => { :user => current_user } %>
   <% else %>
-    If you are a member or you've registered with us before, you can 
-    <%= link_to 'log in', new_user_session_path %> using your email.
+    <p class="note">If you are a member or you've registered with us before, you can 
+    <%= link_to 'log in', new_user_session_path %> using your email.</p>
     <%= render :partial => 'shared/user_info', :locals => { :user => @user } %>
   <% end %>
   <%= render :partial => 'shared/payment' %>
