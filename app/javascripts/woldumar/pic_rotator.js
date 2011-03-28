@@ -1,17 +1,3 @@
-// JavaScript Document
-
-function theRotator() {
-	//Set the opacity of all images to 0
-	$('div#rotator ul li').css({opacity: 0.0});
-	
-	//Get the first image and display it (gets set to full opacity)
-	$('div#rotator ul li:first').css({opacity: 1.0});
-		
-	//Call the rotator function to run the slideshow, 6000 = change to next image after 6 seconds
-	setInterval('rotate()',4000);
-	
-}
-
 function rotate() {	
 	//Get the first image
 	var current = ($('div#rotator ul li.show')?  $('div#rotator ul li.show') : $('div#rotator ul li:first'));
@@ -27,10 +13,15 @@ function rotate() {
 	//Hide the current image
 	current.animate({opacity: 0.0}, 1000)
 	.removeClass('show');
-	
 };
 
 $(document).ready(function() {		
-	//Load the slideshow
-	theRotator();
+	//Set the opacity of all images to 0
+	$('div#rotator ul li').css({opacity: 0.0});
+	
+	//Get the first image and display it (gets set to full opacity)
+	$('div#rotator ul li:first').css({opacity: 1.0});
+		
+	//Call the rotator function to run the slideshow, 6000 = change to next image after 6 seconds
+	setInterval('rotate()',4000);
 });
