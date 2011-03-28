@@ -41,7 +41,7 @@ body {
 
 #contact {
   padding-top: 1.5em;
-  h3, p { font-size: 14px; display: table; margin: 0 auto; font-family: "trebuchetms", arial, helvetica; color: #50420E  }
+  h3, p { font-size: 14px; margin: 0 auto; font-family: "trebuchetms", arial, helvetica; color: #50420E  }
   h3 { letter-spacing: 2px; font-size: 25px; font-family: "trebuchetms", arial, helvetica; font-weight: bold; margin-bottom: .5em; color: #839500 }
   p { padding: 0; }
 }
@@ -50,8 +50,15 @@ body {
   padding: 0 $main-margin;
 }
 
+#content img {
+  margin: 0.5em;
+  -moz-box-shadow: 2px 2px #888;
+  -webkit-box-shadow: 2px 2px #888;
+  box-shadow: 2px 2px #888;
+  border: 1px solid #888;
+}
+
 #bottom_divider {
-  display: table;
   margin: 0 auto;
   width: $block-width;
   height: 5px;
@@ -63,6 +70,7 @@ body {
   font-family: arial, helvetica;
   color: #50420E;
   font-size: 14px;
+  padding-bottom: 1em;
 }
 
 #footer_block {

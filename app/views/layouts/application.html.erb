@@ -27,6 +27,7 @@
     <div id="content">
       <% if flash[:notice] %><p class="notice"><%= flash[:notice] %></p><% end %>
       <%= yield %>
+      <div style="clear: both;">&nbsp;</div>
     </div>
 
     <div id="bottom_divider"></div>
@@ -35,8 +36,6 @@
       <p>Copyright &copy;2011, Woldumar Nature Center</p>
       <p>5739 Old Lansing Rd &middot; Lansing, MI &middot; Phone: (517) 322-0030 &middot; Fax: (517) 322-9394</p>
     </div>
-
-    <div id="footer_block">&nbsp;</div>
   </div> <!-- Wrapper -->
 </body>
 </html>
