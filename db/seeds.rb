@@ -2,7 +2,7 @@ admins = {
   'dan.poggi@gmail.com' => ['Dan', 'Poggi'],
   'jimmy.perrine@gmail.com' => ['Jimmy', 'Perrine'],
   'brad.handy@gmail.com' => ['Brad', 'Handy'],
-  'jimbeil@yahoo.com' => ['Jim', 'Beil']
+  'dkastner@gmail.com' => ['Derek', 'Kastner']
 }
 
 admins.each do |email_frozen, name|
