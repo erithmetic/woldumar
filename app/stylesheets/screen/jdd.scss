@@ -45,6 +45,7 @@ ul.site_nav li ul {
   visibility: hidden;
   background: #97A700;
   width: 148px;
+  z-index: 600; /* stay on top of the image rotator */
 }
 
 ul.site_nav li ul li {
