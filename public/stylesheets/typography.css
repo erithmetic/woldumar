@@ -1,0 +1,54 @@
+/* typography.scss
+*/
+
+body {
+  font-family: Georgia, Times, "Times New Roman", serif;
+  line-height: 2.5ex;
+  font-size: 20px;
+}
+h1 {
+  font-size: 30px;
+  font-weight: bold;
+  text-align: center;
+  font-family: "Trebuchet MS", sans-serif;
+  color: #514300;
+  margin-bottom: 1.7em;
+}
+h2 {
+  font-size: 24px;
+  font-weight: bold;
+  color: #514300;
+  font-family: "Trebuchet MS", sans-serif;
+  margin-bottom: 0.8em;
+}
+
+p { margin: .5em 0; }
+
+ul {
+  list-style-type: circle;
+  padding-top: 1em;
+  margin-left: 2em;
+}
+ul li {
+  padding-left: 1em; padding-bottom: 1em;
+}
+
+legend { font-size: large; font-family: Georgia, Times, "Times New Roman", serif; font-weight: bold; margin-bottom: 1em; display: block; padding-bottom: 1em; }
+div.field { clear: both; }
+label { width: 150px; float: left; }
+
+p.note { margin: 1em; font-style: italic; }
+
+div.index h1 { padding-bottom: 1em; }
+div.index table {
+    margin: 0 auto;
+    margin-bottom: 1em;
+}
+div.index tr#headers { border-bottom: 1px black solid; }
+div.index th, div.index td { border-right: 1px black solid; padding: .5em; }
+div.index th:last-child, div.index td:last-child { border-right: none; }
+
+div.show h2, div.show h3 { font-weight: bold; text-align: center; }
+div.show h2 { font-size: x-large; }
+div.show h3 { font-size: large; padding-bottom: 1em; }
+div.show table { margin: .5em auto; font-size: large; }

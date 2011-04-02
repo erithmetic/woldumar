@@ -30,10 +30,6 @@ Woldumar::Application.routes.draw do
   # Admin interface (mostly for User model)
   match '/admin(/:action(/:id))', :to => 'Admin'
 
-  # Assets controller
-  match '/stylesheets/:package.css', :to => 'Assets#index', :as => 'stylesheet', :type => :css
-  match '/javascripts/:package.js', :to => 'Assets#index', :as => 'javascript', :type => :js
-
   # Pages (rest of site)
   match '/:id(.format)', :to => 'Pages#show', :as => :page, :constraints => { :id => /.+/ }
   root :to => 'Pages#show', :id => 'home'

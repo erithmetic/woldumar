@@ -1,8 +1,6 @@
 /* home.scss
 */
 
-$radius: 2ex;
-
 #slider-container, #slider-bar {
   width: 900px;
   margin: 0 auto;
@@ -85,11 +83,13 @@ $radius: 2ex;
 #left-col {
 	float: left;
 	width: 70%;
-	div#line_one{ align:left; font-size: 25px; font-family: "trebuchetms", arial, helvetica; font-weight: bold; color: #839500 }
-	div#line_two{align:left; font-size: 22px; font-family: "trebuchetms", arial, helvetica; font-weight: bold; margin-left: .5em; margin-bottom: .5em; color: #50420E; }
-	p{ color: #50420E;}
-	div#sizing{width: 570px;}
 }
+#left-col div#line_one{
+  align:left; font-size: 28px; color: #839500 }
+#left-col div#line_two{
+  align:left; font-size: 24px; margin-left: .5em; margin-bottom: .5em; color: #50420E; }
+#left-col div#sizing{width: 570px;}
+#left-col p{ color: #50420E;}
 
 #left-directions-col {
 	float: left;
@@ -115,13 +115,12 @@ $radius: 2ex;
   padding: 1.75em;
   border: 1px #cccccc solid;
   background-color: white;
-  -webkit-border-radius: $radius;
-  -moz-border-radius: $radius;
-  border-radius: $radius;
-
-  h3 { font-family: "trebuchetms", arial, helvetica; margin-bottom: .5em; font-size: large; font-weight: bold; color: #50420E;}
-  hr { color: #BEV28A }
-  div#space {font-family: arial, helvetica; margin: .5em 0 0 0; color: #50420E;}
-  div#bold {font-weight: bold; margin: 0 0 .25em 0; }
-  a{color: #BB7171;}
+  -webkit-border-radius: 2ex;
+  -moz-border-radius: 2ex;
+  border-radius: 2ex;
 }
+.box h3 { font-family: "trebuchetms", arial, helvetica; margin-bottom: .5em; font-size: large; font-weight: bold; color: #50420E;}
+.box hr { color: #BEV28A }
+.box div#space {font-family: arial, helvetica; margin: .5em 0 0 0; color: #50420E;}
+.box div#bold {font-weight: bold; margin: 0 0 .25em 0; }
+.box a{color: #BB7171;}

@@ -1,9 +1,6 @@
 /* layout.scss
 */
 
-$block-width: 904px;
-$main-margin: 38px;
-
 body {
   background-color: #d6cebe;
 	background-attachment: scroll;
@@ -31,26 +28,26 @@ a.skiplink { display: none; }
 }
 
 #top_section {
-  width: $block-width;
+  width: 904px;
   overflow: auto;
   margin: 1em auto;
 }
 
 #logo, #contact {
   float: left;
-  width: $block-width / 2 - 10px;
+  width: 442px;
 }
 
 #contact {
   padding-top: 1.5em;
   text-align: center;
-  h3, p { font-size: 14px; margin: 0 auto; font-family: "trebuchetms", arial, helvetica; color: #50420E  }
-  h3 { letter-spacing: 2px; font-size: 25px; font-family: "trebuchetms", arial, helvetica; font-weight: bold; margin-bottom: .5em; color: #839500 }
-  p { padding: 0; }
 }
+#contact h3, #contact p { font-size: 14px; margin: 0 auto; font-family: "trebuchetms", arial, helvetica; color: #50420E  }
+#contact h3 { letter-spacing: 2px; font-size: 25px; font-family: "trebuchetms", arial, helvetica; font-weight: bold; margin-bottom: .5em; color: #839500 }
+#contact p { padding: 0; }
 
 #content {
-  padding: 0 $main-margin;
+  padding: 0 38px;
 }
 
 #content img {
@@ -71,7 +68,7 @@ a.skiplink { display: none; }
 
 #bottom_divider {
   margin: 0 auto;
-  width: $block-width;
+  width: 904px;
   height: 5px;
   background: #603A18;
 }
@@ -85,7 +82,7 @@ a.skiplink { display: none; }
 }
 
 #footer_block {
-	width: $block-width;
+	width: 904px;
   margin: 0 auto;
 	background-color: #729a13;
 	height: 30px;

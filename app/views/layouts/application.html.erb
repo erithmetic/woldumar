@@ -3,13 +3,14 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <title>Woldumar Nature Center</title>
-  <%= cached_stylesheet_tag 'screen', :media => 'screen, projection' %>
-  <%= cached_stylesheet_tag 'print', :media => 'print' %>
-  <!--[if lt IE 9]>
-    <%= cached_stylesheet_tag 'ie', :media => 'screen, projection' %>
-  <![endif]-->
-  <%= cached_javascript_tag 'woldumar' %>
+  <%= javascript_include_tag 'jquery' %>
+  <%= javascript_include_tag 'jquery-ui' %>
+  <%= javascript_include_tag 'application' %>
+  <% if params[:controller] == 'home' %>
+    <%= javascript_include_tag 'pic_rotator' %>
+  <% end %>
   <%= javascript_include_tag 'http://connect.facebook.net/en_US/all.js#xfbml=1' %>
+  <%= stylesheet_link_tag :all %>
   <%= csrf_meta_tag %>
 </head>
 <body>

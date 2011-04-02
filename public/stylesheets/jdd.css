@@ -39,7 +39,7 @@ ul.site_nav li a {
 ul.site_nav li a:hover { text-decoration: underline; }
 
 ul.site_nav li ul {
-  margin: 23px 0 0 0;
+  margin: 17px 0 0 0;
   padding: 0;
   position: absolute;
   visibility: hidden;
