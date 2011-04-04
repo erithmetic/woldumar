@@ -35,3 +35,4 @@ Woldumar::Application.configure do
 end
 
 ActiveMerchant::Billing::Base.mode = :test
+Refinery.rescue_not_found = false

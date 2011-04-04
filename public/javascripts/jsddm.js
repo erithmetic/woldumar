@@ -25,6 +25,6 @@ $(document).ready(function() {
     }
   }
 
-  $('ul.site_nav > li').hover(jsddm_open, jsddm_timer)
+  $('nav > ul > li').hover(jsddm_open, jsddm_timer)
   $(document).click(jsddm_close);
 });

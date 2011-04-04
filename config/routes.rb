@@ -1,6 +1,6 @@
 Woldumar::Application.routes.draw do
   # Authentication
-  devise_for :users
+#  devise_for :users
 
   # Standard resources
   resources :session_registrations, :event_registrations, :donations
@@ -12,7 +12,7 @@ Woldumar::Application.routes.draw do
   # Nested resources
   scope '/admin' do
     resources :camps do 
-      resources :sessions
+      resources :camp_sessions
     end
   end
 
@@ -29,8 +29,4 @@ Woldumar::Application.routes.draw do
 
   # Admin interface (mostly for User model)
   match '/admin(/:action(/:id))', :to => 'Admin'
-
-  # Pages (rest of site)
-  match '/:id(.format)', :to => 'Pages#show', :as => :page, :constraints => { :id => /.+/ }
-  root :to => 'Pages#show', :id => 'home'
 end

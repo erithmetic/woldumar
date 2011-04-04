@@ -12,11 +12,11 @@ Woldumar's Mission is to educate people about the natural environment. For over 
   4. To make the website ADA compliant for program registration, payments and donations including membership fees. 
   5. To develop a 24/7 on-line store for Woldumar gift shop sales.
   6. To tie current database to data-collection on website for tracking and following up.
-  7. To provide on-line video clips and live still images of trails, activities, and events.
-  8. Batch email capabilities using Woldumar database and embedding graphics into email.
-  9. Expanding use of Facebook and possibility of adding Twitter and/or other social networking tools.
-  10. To create a user-friendly (like Flash) atmosphere within the website.
-  11. Sound effects.
+  # 7. To provide on-line video clips and live still images of trails, activities, and events.
+  # 8. Batch email capabilities using Woldumar database and embedding graphics into email.
+  # 9. Expanding use of Facebook and possibility of adding Twitter and/or other social networking tools.
+  # 10. To create a user-friendly (like Flash) atmosphere within the website.
+  # 11. Sound effects.
 
 ## User goals
 

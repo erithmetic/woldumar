@@ -1,43 +1,51 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-  <title>Woldumar Nature Center</title>
-  <%= javascript_include_tag 'jquery' %>
-  <%= javascript_include_tag 'jquery-ui' %>
-  <%= javascript_include_tag 'application' %>
-  <% if params[:controller] == 'home' %>
-    <%= javascript_include_tag 'pic_rotator' %>
+<!DOCTYPE html>
+<%= render :partial => "/shared/html_tag" %>
+  <% site_bar = render(:partial => "/shared/site_bar", :locals => {:head => true}) -%>
+  <% content_for :stylesheets do %>
+    <%= stylesheet_link_tag :all %>
   <% end %>
-  <%= javascript_include_tag 'http://connect.facebook.net/en_US/all.js#xfbml=1' %>
-  <%= stylesheet_link_tag :all %>
-  <%= csrf_meta_tag %>
-</head>
-<body>
-  <a class="skiplink" href="#content">Skip header and navigation</a>
-  <div id="wrapper">
-    <div id="top_nav"><%= nav_bar %></div>
-    <div id="top_section">
-      <div id="logo"><img src="/images/Woldumar_Nature_Center.png" alt="Woldumar Nature Center Logo" /></div>
-      <div id="contact">
-        <h3>517-322-0030</h3>
-
-        <p>5739 Old Lansing <abbrev title="Road">Rd.</abbrev> Lansing, <abbrev title="Michigan">MI</abbrev> 48917</p>
+  <% content_for :javascripts do %>
+    <%= javascript_include_tag 'jquery' %>
+    <%= javascript_include_tag 'jquery-ui' %>
+    <%= javascript_include_tag 'application' %>
+    <%= javascript_include_tag 'pic_rotator' %>
+    <%= javascript_include_tag 'jsddm' %>
+    <%= javascript_include_tag 'http://connect.facebook.net/en_US/all.js#xfbml=1' %>
+  <% end %>
+  <%= render :partial => "/shared/head" %>
+  <body>
+    <%= site_bar -%>
+    <%= render :partial => "/shared/ie6check" if request.env['HTTP_USER_AGENT'] =~ /MSIE/ -%>
+    <a class="skiplink" href="#content">Skip header and navigation</a>
+    <div id="wrapper">
+      <div id="top_nav">
+        <%= render :partial => "/shared/menu",
+                   :locals => {
+                     :dom_id => 'menu',
+                     :css => 'menu'
+                   } -%>
       </div>
-    </div> <!-- top_section -->
-
-    <div id="content">
       <% if flash[:notice] %><p class="notice"><%= flash[:notice] %></p><% end %>
-      <%= yield %>
-      <div style="clear: both;">&nbsp;</div>
-    </div>
+      <div id="top_section">
+        <div id="logo"><img src="/images/Woldumar_Nature_Center.png" alt="Woldumar Nature Center Logo" /></div>
+        <div id="contact">
+          <h3>517-322-0030</h3>
 
-    <div id="bottom_divider"></div>
+          <p>5739 Old Lansing <abbrev title="Road">Rd.</abbrev> Lansing, <abbrev title="Michigan">MI</abbrev> 48917</p>
+        </div>
+      </div> <!-- top_section -->
 
-    <div id="footer_text">
-      <p>Copyright &copy;2011, Woldumar Nature Center</p>
-      <p>5739 Old Lansing Rd &middot; Lansing, MI &middot; Phone: (517) 322-0030 &middot; Fax: (517) 322-9394</p>
-    </div>
-  </div> <!-- Wrapper -->
-</body>
+      <div id="content">
+        <%= yield %>
+        <div style="clear: both;">&nbsp;</div>
+      </div>
+
+      <div id="bottom_divider"></div>
+      <div id="footer_text">
+        <p>Copyright &copy;2011, Woldumar Nature Center</p>
+        <p>5739 Old Lansing Rd &middot; Lansing, MI &middot; Phone: (517) 322-0030 &middot; Fax: (517) 322-9394</p>
+      </div>
+    </div> <!-- Wrapper -->
+    <%= render :partial => "/shared/javascripts" %>
+  </body>
 </html>

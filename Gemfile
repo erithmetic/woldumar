@@ -2,6 +2,7 @@ source 'http://rubygems.org'
 
 gem 'rails', '3.0.5'
 
+gem 'aaronh-chronic'
 gem 'activemerchant'
 gem 'compass'
 gem 'devise'
@@ -9,7 +10,8 @@ gem 'haml'
 gem 'high_voltage'
 gem 'jquery-rails'
 gem 'paperclip'
-gem 'aaronh-chronic'
+gem 'refinerycms'
+gem 'will_paginate', '3.0.pre2'
 
 group :production do
 #  gem 'mysql'  # commented out because mysql is causing fits when mysql doesn't exist.
