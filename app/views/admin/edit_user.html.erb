@@ -13,66 +13,66 @@
     </div>
   <% end %>
 
-  <p><%= f.label :email %><br />
-  <%= f.email_field :email %></p>
+  <div class="field"><%= f.label :email %>
+  <%= f.email_field :email %></div>
 
-    <p><%= f.label :title %><br />
-    <%= f.text_field :title %></p>
+    <div class="field"><%= f.label :title %>
+    <%= f.text_field :title %></div>
 
-    <p><%= f.label :first_name %><br />
-    <%= f.text_field :first_name %></p>
+    <div class="field"><%= f.label :first_name %>
+    <%= f.text_field :first_name %></div>
 
-    <p><%= f.label :middle_name %><br />
-    <%= f.text_field :middle_name %></p>
+    <div class="field"><%= f.label :middle_name %>
+    <%= f.text_field :middle_name %></div>
 
-    <p><%= f.label :last_name %><br />
-    <%= f.text_field :last_name %></p>
+    <div class="field"><%= f.label :last_name %>
+    <%= f.text_field :last_name %></div>
 
-    <p><%= f.label :birth_date %><br />
-    <%= f.date_select :birth_date, { :start_year => 1900, :end_year => Time.now.year } %></p>
+    <div class="field"><%= f.label :birth_date %>
+    <%= f.date_select :birth_date, { :start_year => 1900, :end_year => Time.now.year } %></div>
 
-    <p><%= f.label :address_line_1 %><br />
-    <%= f.text_field :address_line_1 %></p>
+    <div class="field"><%= f.label :address_line_1 %>
+    <%= f.text_field :address_line_1 %></div>
 
-    <p><%= f.label :address_line_2 %><br />
-    <%= f.text_field :address_line_2 %></p>
+    <div class="field"><%= f.label :address_line_2 %>
+    <%= f.text_field :address_line_2 %></div>
 
-    <p><%= f.label :address_line_3 %><br />
-    <%= f.text_field :address_line_3 %></p>
+    <div class="field"><%= f.label :address_line_3 %>
+    <%= f.text_field :address_line_3 %></div>
 
-    <p><%= f.label :city %><br />
-    <%= f.text_field :city %></p>
+    <div class="field"><%= f.label :city %>
+    <%= f.text_field :city %></div>
 
-    <p><%= f.label :state %><br />
-    <%= f.text_field :state %></p>
+    <div class="field"><%= f.label :state %>
+    <%= f.text_field :state %></div>
 
-    <p><%= f.label :postal_code %><br />
-    <%= f.text_field :postal_code %></p>
+    <div class="field"><%= f.label :postal_code %>
+    <%= f.text_field :postal_code %></div>
 
-    <p><%= f.label :country %><br />
-    <%= f.text_field :country %></p>
+    <div class="field"><%= f.label :country %>
+    <%= f.text_field :country %></div>
 
-    <p><%= f.label :home_phone %><br />
-    <%= f.text_field :home_phone %></p>
+    <div class="field"><%= f.label :home_phone %>
+    <%= f.text_field :home_phone %></div>
 
-    <p><%= f.label :work_phone %><br />
-    <%= f.text_field :work_phone %></p>
+    <div class="field"><%= f.label :work_phone %>
+    <%= f.text_field :work_phone %></div>
 
-    <p><%= f.label :mobile_phone %><br />
-    <%= f.text_field :mobile_phone %></p>
+    <div class="field"><%= f.label :mobile_phone %>
+    <%= f.text_field :mobile_phone %></div>
 
-    <p><%= f.label :fax %><br />
-    <%= f.text_field :fax %></p>
+    <div class="field"><%= f.label :fax %>
+    <%= f.text_field :fax %></div>
 
-		<p><%= f.label :is_admin %><br />
-		<%= f.check_box :is_admin %></p>
+		<div class="field"><%= f.label :is_admin %>
+		<%= f.check_box :is_admin %></div>
 		
-		<p><%= f.label :is_member %><br />
-		<%= f.check_box :is_member %></p>
+		<div class="field"><%= f.label :is_member %>
+		<%= f.check_box :is_member %></div>
 
 
-    <p><%= f.label :notes %><br />
-    <%= f.text_area :notes %></p>
+    <div class="field"><%= f.label :notes %>
+    <%= f.text_area :notes %></div>
 
-  <p><%= f.submit "Update" %></p>
+  <div class="field"><%= f.submit "Update" %></div>
 <% end %>

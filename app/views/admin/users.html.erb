@@ -1,8 +1,16 @@
+<h1>Contact Management</h1>
+<form action="<%= url_for :action => :users %>" method="get">
+  <div class="field" sytle="float: right;">
+    <label for="search">Search</label>
+    <input type="text" name="search" style="width: 10em;" value="<%= params[:search] %>" />
+    <a href="<%= url_for :action => :users %>">Clear</a>
+  </div>
+</form>
 <table>
 	<thead>
 		<tr>
 			<th>Name</th>
-			<th>Admin?</th>
+			<th>Email</th>
 			<th>Member?</th>
 			<th>Edit</th>
 		</tr>
@@ -10,11 +18,18 @@
 	<tbody>
 		<% @users.each do |user| %>
 			<tr>
-				<td><%= user.full_name %></td>
-				<td><%= user.is_admin? %></td>
-				<td><%= user.is_member? %></td>
+        <td>
+          <%= user.full_name %>
+          <% if user.is_admin? %>
+            (Administrator)
+          <% end %>
+        </td>
+        <td><%= mail_to user.email, user.email %></td>
+				<td><%= user.is_member? ? 'Yes' : 'No' %></td>
 				<td><%= link_to "Edit", url_for(:action => :edit_user, :id => user.id), :id => "edit#{user.id}" %><td>
 			</tr>
 		<% end %>
 	</tbody>
 </table>
+<%= will_paginate @users %>
+<p><%= link_to 'Back to admin page', '/admin' %></p>
