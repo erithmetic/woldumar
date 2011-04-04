@@ -10,6 +10,11 @@ class Transaction
     self.amount ||= 0
   end
 
+  def credentials
+    @credentials ||= AuthorizeNetCredential.first
+    @credentials ||= AuthorizeNetCredential.create :username => 'test', :password => 'secret'
+  end
+
   def credit_card
     @credit_card ||= ActiveMerchant::Billing::CreditCard.new(
       :number     => number,
@@ -23,8 +28,8 @@ class Transaction
 
   def gateway
     @gateway ||= ActiveMerchant::Billing::AuthorizeNetGateway.new(
-      :login    => ENV['GATEWAY_LOGIN'],
-      :password => ENV['GATEWAY_PASSWORD'],
+      :login    => credentials.username,
+      :password => credentials.password,
       :test => !Rails.env.production?
     )
   end
