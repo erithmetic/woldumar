@@ -1,14 +1,6 @@
-<p id="notice"><%= notice %></p>
+<h1><%= @event.name %></h1>
 
-<p>
-  <b>Name:</b>
-  <%= @event.name %>
-</p>
-
-<p>
-  <b>Description:</b>
-  <%= @event.description %>
-</p>
+<p><%= @event.description %></p>
 
 <p>
   <b>Start date:</b>
@@ -20,5 +12,4 @@
   <%= @event.end_date %>
 </p>
 
-<%= link_to 'Edit', edit_event_path(@event) %> |
-<%= link_to 'Back', events_path %>
+<%= render :partial => 'event_registrations/form' %>

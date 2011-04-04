@@ -2,6 +2,8 @@ class Event < ActiveRecord::Base
   has_many :event_registrations
   has_many :event_tickets
 
+  accepts_nested_attributes_for :event_tickets
+
   validates_presence_of :name
   validates_length_of :event_tickets, :minimum => 1
 
