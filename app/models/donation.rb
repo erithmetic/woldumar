@@ -31,4 +31,8 @@ class Donation < ActiveRecord::Base
       false
     end
   end
+
+  def paid_online?
+    cc_auth.present?
+  end
 end

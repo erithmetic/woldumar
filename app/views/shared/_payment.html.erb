@@ -11,7 +11,8 @@
     <%= select_year(Date.today, { :start_year => Date.today.year }, :name => 'credit_card[expiration_year]', :id => 'credit_card_expiration_year') %>
   </div>
   <div class="field required">
-    <%= label_tag 'credit_card[ccv]', 'Verification number (3-digit code on reverse side of card)' %>
+    <%= label_tag 'credit_card[ccv]', 'Verification number' %>
     <%= text_field_tag 'credit_card[ccv]', nil, :size => 3 %>
+    (3-digit code on reverse side of card)
   </div>
 </fieldset>

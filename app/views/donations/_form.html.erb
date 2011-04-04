@@ -1,7 +1,7 @@
 <%= form_for(@donation) do |f| %>
   <% if @donation.errors.any? || @donation.transaction.message %>
     <div id="error_explanation">
-      <h2><%= pluralize(@donation.errors.count + (@donation.transaction.message ? 1 : 0), "error") %> prohibited this donation from being saved:</h2>
+      <h2><%= pluralize(@donation.errors.count + (@donation.transaction.message ? 1 : 0), "error") %> prohibited this donation from being accepted:</h2>
 
       <ul>
       <% @donation.errors.full_messages.each do |msg| %>
