@@ -52,7 +52,7 @@
     <%= f.text_field :mobile_phone %></div>
 
   <div class="field"><%= f.label :password %>
-    <%= f.password_field :password %> <i>(leave blank if you don't want to change it)</i>
+    <%= f.password_field :password, {}, :value => '' %> <i>(leave blank if you don't want to change it)</i>
   </div>
 
   <div class="field"><%= f.label :password_confirmation %>
