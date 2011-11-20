@@ -1,17 +1,16 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.0.5'
+gem 'rails', '~> 3.1.0'
 
 gem 'aaronh-chronic'
-gem 'activemerchant'
+# gem 'activemerchant'
 gem 'compass'
-gem 'devise'
-gem 'haml'
-gem 'high_voltage'
+# gem 'devise'
+# gem 'high_voltage'
 gem 'jquery-rails'
-gem 'paperclip'
+# gem 'paperclip'
 gem 'refinerycms'
-gem 'will_paginate', '3.0.pre2'
+# gem 'will_paginate', '3.0.pre2'
 
 group :production do
 #  gem 'mysql'  # commented out because mysql is causing fits when mysql doesn't exist.
@@ -23,7 +22,6 @@ end
 
 group :test do
   gem 'capybara'
-  gem 'cucumber'
   gem 'cucumber-rails'
   gem 'database_cleaner'
   gem 'launchy'
