@@ -1,43 +1,14 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html>
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-  <title>Woldumar Nature Center</title>
-  <%= javascript_include_tag 'jquery' %>
-  <%= javascript_include_tag 'jquery-ui' %>
-  <%= javascript_include_tag 'application' %>
-  <% if params[:controller] == 'home' %>
-    <%= javascript_include_tag 'pic_rotator' %>
-  <% end %>
-  <%= javascript_include_tag 'http://connect.facebook.net/en_US/all.js#xfbml=1' %>
+  <title>Woldumar</title>
   <%= stylesheet_link_tag :all %>
+  <%= javascript_include_tag :defaults %>
   <%= csrf_meta_tag %>
 </head>
 <body>
-  <a class="skiplink" href="#content">Skip header and navigation</a>
-  <div id="wrapper">
-    <div id="top_nav"><%= nav_bar %></div>
-    <div id="top_section">
-      <div id="logo"><img src="/images/Woldumar_Nature_Center.png" alt="Woldumar Nature Center Logo" /></div>
-      <div id="contact">
-        <h3>517-322-0030</h3>
 
-        <p>5739 Old Lansing <abbrev title="Road">Rd.</abbrev> Lansing, <abbrev title="Michigan">MI</abbrev> 48917</p>
-      </div>
-    </div> <!-- top_section -->
+<%= yield %>
 
-    <div id="content">
-      <% if flash[:notice] %><p class="notice"><%= flash[:notice] %></p><% end %>
-      <%= yield %>
-      <div style="clear: both;">&nbsp;</div>
-    </div>
-
-    <div id="bottom_divider"></div>
-
-    <div id="footer_text">
-      <p>Copyright &copy;2011, Woldumar Nature Center</p>
-      <p>5739 Old Lansing Rd &middot; Lansing, MI &middot; Phone: (517) 322-0030 &middot; Fax: (517) 322-9394</p>
-    </div>
-  </div> <!-- Wrapper -->
 </body>
 </html>
